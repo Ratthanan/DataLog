@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" id="footer" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/resources/images/img-title-login.png" var="img_title_login" />
+
+    <div class="navbar navbar-fixed-top navbar-material-grey-800" role="navigation" style="background-color: #2c3e50;" >
+        <div class="container-fluid">
+            <!--<div class="navbar-header nav-60" >-->
+          <!---->
+                <!--<spring:url var="dashboard" value="/"/>-->
+                <!--<a onclick="goDashboard()" class="mohide" style="top: 10px;float: left;left: 70px;margin-top: 0px;padding: 6px;position: absolute;border-radius: 0px;" ><img  src="${img_title_login}" style="width: 224px;height: 30px;" /></a>-->
+                <!--<h2 style="top: 14px;float: left;right: 10px;margin-top: 0px;padding: 6px;position: absolute;border-radius: 0px;" onClick="" ><span id="button_help" class="fa fa-th visible-xs" aria-hidden="true"   data-toggle="modal" data-target="#helpMenuModal"></span></h2>-->
+
+            <!--</div>-->
+
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <!--<sec:authentication var="principal" property="principal" />-->
+                <ul class="nav navbar-nav" style="margin-top: 5px">
+                    <a onclick="goMenu()" style="padding-top: 0px;padding-bottom: 0px" ><label id="dashboard" style=" color: white;font-size: 20px; cursor: pointer; margin-top: 10px; margin-right: 10px;">DataLog System</label>
+                    </a>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="">
+                        <label id="logout" style=" color: white;font-size: 20px; cursor: pointer; margin-top: 10px; margin-right: 10px;">| Log out</label>
+                    </li>
+                    <!--<li class="dropdown">-->
+                        <!--<a  class="dropdown-toggle capitalize"   data-toggle="modal" data-target="#helpMenuModal" style="padding-bottom: 5px;padding-top: 5px;" ><img class="img-circle" src="${sessionScope.img_src}" style="width: 40px;height: 40px" />&#160;&#160;<label id="app_username" >${sessionScope.userName} </label>&#160;&#160;<span id="_role"/>&#160;(${sessionScope.ROLE_NAME})</a>-->
+
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        <![CDATA[
+
+        $MESSAGE_CONFIRM_PASSWORD_DONT_MATCH = '${MESSAGE_CONFIRM_PASSWORD_DONT_MATCH}';
+        $USER_ID = '${sessionScope.USER_ID}';
+
+
+        function submitlogout() {
+            location.href = session['context']+'/logout'
+        }
+ function goMenu() {
+            location.href = session['context']+'/menu'
+        }
+
+
+        $(document).ready(function () {
+            $('#logout').on('click',function () {
+                location.href = session['context']+'/logout'
+            })
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+        ]]>
+    </script>
+
+</div>

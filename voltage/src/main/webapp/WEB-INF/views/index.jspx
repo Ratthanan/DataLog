@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div style="background: #8094783d" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:component="urn:jsptagdir:/WEB-INF/tags/component" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Message i18n-->
+    <c:set scope="request" var="MESSAGE_NO_DATA"><spring:message code="message_no_data"/></c:set>
+    <c:set scope="request" var="MESSAGE_DELETE_SUCCESS"><spring:message code="message_delete_success"/></c:set>
+    <c:set scope="request" var="MESSAGE_DELETE_CANCELED"><spring:message code="message_delete_canceled"/></c:set>
+
+    <!--Button i18n-->
+    <c:set scope="request" var="BUTTON_SAVE"><spring:message code="button_save"/></c:set>
+    <c:set scope="request" var="BUTTON_SEARCH"><spring:message code="button_search"/></c:set>
+    <c:set scope="request" var="BUTTON_DELETE"><spring:message code="button_delete"/></c:set>
+    <c:set scope="request" var="BUTTON_EDIT"><spring:message code="button_edit"/></c:set>
+
+    <!--Label i18n-->
+    <c:set scope="request" var="LABEL_NO"><spring:message code="label_no"/></c:set>
+    <c:set scope="request" var="LABEL_FIRST_NAME"><spring:message code="label_first_name"/></c:set>
+    <c:set scope="request" var="LABEL_LAST_NAME"><spring:message code="label_last_name"/></c:set>
+    <c:set scope="request" var="LABEL_AGE"><spring:message code="label_age"/></c:set>
+    <c:set scope="request" var="LABEL_SEARCH_WITH_FIRST_NAME"><spring:message code="label_serach_with_first_name"/></c:set>
+    <c:set scope="request" var="LABEL_ALERT"><spring:message code="label_alert"/></c:set>
+    <c:set scope="request" var="LABEL_ACTION"><spring:message code="label_action"/></c:set>
+
+    <!--<spring:url value="/scripts/util/pagingUtil.js" 			var="page_util_url" />-->
+    <spring:url value="/scripts/app/index.js" 			var="index_js_url" />
+    <!--<script src="${page_util_url}" 				type="text/javascript">&lt;!&ndash; required for FF3 and Opera &ndash;&gt;</script>-->
+    <script src="${index_js_url}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
+
+
+    <script type="text/javascript">
+        <![CDATA[
+          var $CRITERIA_PAGE    =   '${criteria_page}';
+            var $MESSAGE_NO_DATA = '${MESSAGE_NO_DATA}';
+            var $MESSAGE_DELETE_SUCCESS = '${MESSAGE_DELETE_SUCCESS}';
+            var $MESSAGE_DELETE_CANCELED = '${MESSAGE_DELETE_CANCELED}';
+
+            var $LABEL_ALERT = '${LABEL_ALERT}';
+
+            var $BUTTON_EDIT = '${BUTTON_EDIT}';
+            var $BUTTON_DELETE = '${BUTTON_DELETE}';
+
+        var MSG_SESSION_EXPIRE = '${MESSAGE_SESSION_HAS_EXPIRE}'
+        var session = {
+
+            context: '${pageContext.request.contextPath}',              // the context path
+            date: new Date(Number("${now.time}")).setHours(0,0,0,0),    // the current date without time
+            time: new Date(Number("${now.time}")),                      // the current date with time
+            timeout: parseInt("${pageContext.session.maxInactiveInterval}"),    // the session time (second unit) get from web.xml };
+            userName:'${sessionScope.userName}',
+            roleName : '${sessionScope.ROLE_NAME}'
+        };
+
+        var csrfParameter = '${_csrf.parameterName}';
+        var csrfToken = '${_csrf.token}';
+
+        var $USERNAME         = '${sessionScope.userName}';
+        var $LANGUAGE_1         = '${sessionScope.PARAMETER_LANGUAGE[0].variable3 }';
+        var $LANGUAGE_2         = '${sessionScope.PARAMETER_LANGUAGE[1].variable3 }';
+        var $LANGUAGE_3         = '${sessionScope.PARAMETER_LANGUAGE[2].variable3 }';
+        var $LANGUAGE_4         = '${sessionScope.PARAMETER_LANGUAGE[3].variable3 }';
+        var $LANGUAGE_5         = '${sessionScope.PARAMETER_LANGUAGE[4].variable3 }';
+
+
+
+
+        ]]>
+    </script>
+
+    <style>
+        .paddingTop{
+            padding-top: 100px;
+        }
+
+
+        .modal {
+            background-color: #fff;
+            box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12);
+            padding: 24px;
+            width: 60%;
+            position: relative;
+            display: none;
+        }
+
+        .center-align{
+            text-align: center;
+        }
+
+        thead,tr,td,th,tbody
+        {
+            border-collapse: collapse;
+            border: 1px solid black;
+
+        }
+
+    </style>
+
+
+
+    <div class="container">
+        <div class="control-label paddingTop">
+            <div>
+
+
+                <div class="col-sm-12">
+
+                    <div class="form-group">
+                        <center>
+                            <label class="col-sm-1 control-label" for="_search_id">Start</label>
+                            <div class="col-sm-4">
+                                <input style="margin-bottom: 10px;" class="form-control" id="search_tim_start" type="date"/>
+                            </div>
+                            <label class="col-sm-1 control-label" for="_search_id">End</label>
+                            <div class="col-sm-4">
+                                <input style="margin-bottom: 10px;" class="form-control" id="search_tim_end" type="date"/>
+
+                            </div>
+
+                            <div class="col-sm-1">
+                                <button style="margin-left: 0px;" class="btn btn-primary" type="button" id="btn_search">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> ค้นหา
+                                </button>
+
+                            </div>
+                        </center>
+
+                    </div>
+
+                    <table  class="table table-striped table-hover">
+                        <thead>
+                            <tr style="background: #8084a5; color: white">
+                                <th class="center-align" >Device</th>
+                                <th class="center-align">Voltage</th>
+                                <th class="center-align">Time</th>
+                                <!--<th class="center-align">TIM</th>-->
+                            </tr>
+                        <!--<div class="row">-->
+                            <!--<div class="col-sm-3">-->
+                                <!--A-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-3">-->
+                                <!--B-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-3">-->
+                                <!--C-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-3">-->
+                                <!--D-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        </thead>
+                        <tbody id="dataLogBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <util:pagingutil id="pagingSearchDataLogBody"/>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"/></button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Modal Edit -->
+    <div id="editModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"/></button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

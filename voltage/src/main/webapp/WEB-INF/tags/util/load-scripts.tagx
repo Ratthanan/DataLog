@@ -1,0 +1,110 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+
+    <jsp:output omit-xml-declaration="yes" />
+
+    <!-- Load CSS -->
+    <spring:url value="/styles/bootstrap.min.css" 			                var="bootstrap_css_url" />
+    <spring:url value="/styles/custombox.min.css" 		                var="custombox_css_url" />
+    <spring:url value="/styles/font-awesome.min.css" 		                var="fontAwesome_css_url" />
+
+    <link rel="stylesheet" type="text/css" href="${bootstrap_css_url}" />
+    <link rel="stylesheet" type="text/css" href="${custombox_css_url}" />
+    <link rel="stylesheet" type="text/css" href="${fontAwesome_css_url}" />
+
+    <!-- Load JS -->
+
+
+    <spring:url value="/scripts/util/URLUtil.js" 				var="url_util_js_url" />
+    <spring:url value="/scripts/util/AjaxUtil.js" 				var="ajax_util_js_url" />
+    <spring:url value="/scripts/util/NumberUtil.js" 				var="number_util_js_url" />
+    <spring:url value="/scripts/util/DateUtil.js" 				var="date_util_js_url" />
+    <spring:url value="/scripts/util/ValidateFieldUtil.js" 		var="validtae_field_util_js_url" />
+    <spring:url value="/scripts/util/pagingUtil.js" 				var="pagingUtil_js_url" />
+
+    <spring:url value="/scripts/bootstrap-paginator.js" 			var="bootstrap_paginator_url" />
+    <spring:url value="/scripts/jquery-1.11.1.min.js" 			var="jquery_js_url" />
+    <spring:url value="/scripts/jquery-3.3.1.min.js" 			var="jquery_js_url_3" />
+    <spring:url value="/scripts/jquery-ui.min.js" 				var="jquery_ui_js_url" />
+    <spring:url value="/scripts/jquery-ui-1.11.1.min.js" 		var="jqueryUI_js_url" />
+    <spring:url value="/scripts/bootstrap.min.js" 				var="bootstrap_js_url" />
+    <spring:url value="/scripts/jquery.holder.js" 				var="jquery_holder_js_url" />
+    <spring:url value="/scripts/jquery.timepicker.js" 			var="jquery_timepicker_js_url" />
+    <spring:url value="/scripts/jquery.typeahead.js" 			var="jquery_typeahead_js_url" />
+    <spring:url value="/scripts/common.js" 						var="common_js_url" />
+    <spring:url value="/scripts/chart.min.js" 					var="chart_js_url" />
+    <spring:url value="/scripts/fullcalendar.moment.min.js" 		var="fullcalendar_moment_js_url" />
+    <spring:url value="/scripts/fullcalendar.js" 				var="fullcalendar_js_url" />
+    <spring:url value="/scripts/jquery.navgoco.js" 				var="jquery_navgoco_js_url" />
+    <spring:url value="/scripts/jquery.bootbox.js" 				var="jquery_bootbox_js_url" />
+    <spring:url value="/scripts/jquery.md5.js" 					var="jquery_md5_js" />
+    <spring:url value="/scripts/material.min.js" 				var="material_js_url" />
+    <spring:url value="/scripts/ripples.min.js" 					var="ripples_js_url" />
+    <spring:url value="/scripts/slimscroll.js" 					var="slimscroll_js_url" />
+    <spring:url value="/scripts/hammer.js" 						var="hammer_js_url" />
+    <spring:url value="/scripts/hoe.js" 							var="hoe_js_url" />
+    <spring:url value="/scripts/svg-pan-zoom.min.js" 			var="svgPanZoom_js_url" />
+    <spring:url value="/scripts/typeahead.bundle.min.js" 		var="typeahead_bundle_js_url" />
+    <spring:url value="/scripts/standard.js" 					var="standard_js_url" />
+    <spring:url value="/scripts/bootstrap-datepicker.min.js" 	var="bootstrapDatepicker_js_url" />
+    <spring:url value="/scripts/bootstrap-tokenfield.min.js" 	var="bootstrapTokenfield_js_url" />
+    <spring:url value="/scripts/modernizr.custom.js"       		var="modernizr_custom_js" />
+    <spring:url value="/scripts/jquery.growl.js"       		    var="jquery_growl_js" />
+    <spring:url value="/scripts/picker.js"       		            var="picker_js" />
+    <spring:url value="/scripts/picker.date.js"       		    var="picker_date_js" />
+    <spring:url value="/scripts/picker.time.js"       		    var="picker_time_js" />
+    <spring:url value="/scripts/google_chart.js"       		    var="google_chart_js" />
+    <spring:url value="/scripts/flatpickr.min.js"       		    var="flatpickr_js" />
+    <spring:url value="/scripts/th.js"       		            var="flatpickr_th_js" />
+    <spring:url value="/scripts/bootstrap-timepicker.min.js"     var="bootstrapTimepicker_js_url" />
+    <spring:url value="/scripts/sweetalert.min.js"       		var="sweetalert_min_js" />
+    <spring:url value="/scripts/jquery.scrollTo.min.js"       		var="jquery_scrollTo_min_js" />
+    <spring:url value="/scripts/th.js"       		var="picker_th_js" />
+
+    <script src="${jquery_js_url}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_js_url_3}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_ui_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jqueryUI_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${bootstrap_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_holder_js_url}" 		type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_timepicker_js_url}" 	type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_typeahead_js_url}" 	type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${common_js_url}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${chart_js_url}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${fullcalendar_moment_js_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${fullcalendar_js_url}" 		type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_navgoco_js_url}" 		type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_bootbox_js_url}" 		type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_md5_js}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${material_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${ripples_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${slimscroll_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${hammer_js_url}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${hoe_js_url}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${svgPanZoom_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${typeahead_bundle_js_url}" 	type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${standard_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${bootstrapTokenfield_js_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${bootstrap_paginator_url}" 	type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${modernizr_custom_js}" 		type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_growl_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${google_chart_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${picker_th_js}" 		        type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${flatpickr_js}" 		        type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${flatpickr_th_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${bootstrapTimepicker_js_url}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${bootstrapDatepicker_js_url}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${sweetalert_min_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_scrollTo_min_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
+
+
+    <script src="${url_util_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${ajax_util_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${number_util_js_url}" 		type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${date_util_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${pagingUtil_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${validtae_field_util_js_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+
+
+
+</jsp:root>
+

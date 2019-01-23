@@ -1,0 +1,450 @@
+<div xmlns:spring="http://www.springframework.org/tags" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:url value="/resources/j_spring_security_check" var="form_url"/>
+    <c:url value="/j_spring_security_check" var="loginUrl" />
+    <!--<spring:url value="/scripts/jquery-3.3.1.min.js" 			var="jquery_js_url" />-->
+    <!--&lt;!&ndash;<spring:url value="/resources/styles/font-awesome.min.css" var="fontAwesome_css_url"/>&ndash;&gt;-->
+    <!--<spring:url value="/resources/images/backgroundLeft.png" var="url_background"/>-->
+
+    <!--<spring:message text="security_login_title" var="title" htmlEscape="false"/>-->
+
+
+    <!--<spring:url value="/resources/images/img-title-login.png" var="img_title_login" />-->
+
+    <!--<script src="${jquery_js_url}" type="text/javascript">&lt;!&ndash; required for FF3 and Opera &ndash;&gt;</script>-->
+    <!--<link rel="stylesheet" type="text/css" href="${fontAwesome_css_url}"/>-->
+
+    <style>
+        /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+        body {
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+            height: 100vh;
+            /*background: url("${url_background}") no-repeat;*/
+            background: black;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        @keyframes spinner {
+            0% {
+                transform: rotateZ(0deg);
+            }
+            100% {
+                transform: rotateZ(359deg);
+            }
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 90vh;
+            /*margin-left: 40%;*/
+
+            /*background: #ffffff;*/
+            padding: 10px;
+
+
+
+
+
+        }
+
+        .login {
+
+            padding: 0px;
+            width: 100%;
+            height: 95%;
+            /*background: #ffffff;*/
+
+
+
+            /*background: url("${url_background}");*/
+            /*max-width:100%;*/
+            /*max-height:100%;*/
+            /*background-position: right ;*/
+
+
+
+
+        }
+        .login.loading button {
+            max-height: 100%;
+            padding-top: 50px;
+        }
+        .login.loading button .spinner {
+            opacity: 1;
+            top: 40%;
+        }
+        .login.ok button {
+            background-color: #8bc34a;
+        }
+        .login.ok button .spinner {
+            border-radius: 0;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            height: 20px;
+            animation: none;
+            transform: rotateZ(-45deg);
+        }
+        .login input {
+            display: block;
+            padding: 15px 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            transition: border-width 0.2s ease;
+            border-radius: 2px;
+            color: #ccc;
+        }
+        .login input + i.fa {
+            color: #fff;
+            font-size: 1em;
+            position: absolute;
+            margin-top: -47px;
+            opacity: 0;
+            left: 0;
+            transition: all 0.1s ease-in;
+        }
+        .login input:focus {
+            outline: none;
+            color: #444;
+            /*border-color: #f35c61;*/
+            /*border-left-width: 35px;*/
+        }
+        .login input:focus + i.fa {
+            opacity: 1;
+            left: 30px;
+            transition: all 0.25s ease-out;
+        }
+        .login a {
+            font-size: 0.8em;
+            color: #2196F3;
+            text-decoration: none;
+        }
+        .login .title {
+            color: #444;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0 30px 0;
+            padding-bottom: 20px;
+        }
+        .login button {
+            width: 100%;
+            height: 100%;
+            padding: 10px 10px;
+            background: #f35c61;
+            color: #fff;
+            display: block;
+            border: none;
+            margin-top: 20px;
+            /*position: absolute;*/
+            left: 0;
+            bottom: 0;
+            max-height: 60px;
+            border: 0px solid rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 2px 2px;
+            transform: rotateZ(0deg);
+            transition: all 0.1s ease-out;
+            border-bottom-width: 7px;
+        }
+        .login button .spinner {
+            display: block;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            border: 4px solid #ffffff;
+            border-top-color: rgba(255, 255, 255, 0.3);
+            border-radius: 100%;
+            left: 50%;
+            top: 0;
+            opacity: 0;
+            margin-left: -20px;
+            margin-top: -20px;
+            animation: spinner 0.6s infinite linear;
+            transition: top 0.3s 0.3s ease, opacity 0.3s 0.3s ease, border-radius 0.3s ease;
+            box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+        }
+        .login:not(.loading) button:hover {
+            /*box-shadow: 5px 5px 5px #f3f22b;*/
+            cursor: pointer;
+            /*text-shadow: 0 0 3px #f8ff9d, 0 0 10px #f8ff9d, 0 0 15px #f8ff9d, 0 0 20px #ffff0d, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;*/
+            font-weight: 900;
+            font-size: 25px;
+        }
+        .login:not(.loading) button:focus {
+            border-bottom-width: 4px;
+        }
+
+        .borderFooter{
+            /*border-bottom:1px solid #eee;*/
+            color:#444;
+            font-size:1.2em;b
+        padding-bottom:10px;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            display: block;
+            padding-top: 50px;
+            text-align: center;
+            color: #ddd;
+            font-weight: normal;
+            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
+            font-size: 0.8em;
+        }
+        footer a, footer a:link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        address {
+            display: inline;
+        }
+
+
+
+        #demotext {
+            color: #FFFFFF;
+            background: #232323;
+            text-shadow: 0 0 3px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+            color: #FFFFFF;
+            background: #232323;
+            font-weight: 900;
+            font-size: 30px;
+        }
+
+
+        /*.col-3{}*/
+        .effect-20{border: 3px solid #ccc; padding: 7px 14px; transition: 0.4s; background: transparent;}
+
+
+
+        .effect-20 ~ .focus-border:before,
+        .effect-20 ~ .focus-border:after{content: ""; position: absolute; top: 0; left: 0; width: 0; height: 2px; background-color: #4caf50; transition: 0.3s;}
+        .effect-20 ~ .focus-border:after{top: auto; bottom: 0; left: auto; right: 0;}
+        .effect-20 ~ .focus-border i:before,
+        .effect-20 ~ .focus-border i:after{content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 0; background-color: #4caf50; transition: 0.4s;}
+        .effect-20 ~ .focus-border i:after{left: auto; right: 0; top: auto; bottom: 0;}
+        .effect-20:focus ~ .focus-border:before,
+        .effect-20:focus ~ .focus-border:after,
+        .has-content.effect-20 ~ .focus-border:before,
+        .has-content.effect-20 ~ .focus-border:after{width: 100%; transition: 0.3s;}
+        .effect-20:focus ~ .focus-border i:before,
+        .effect-20:focus ~ .focus-border i:after,
+        .has-content.effect-20 ~ .focus-border i:before,
+        .has-content.effect-20 ~ .focus-border i:after{height: 100%; transition: 0.4s;}
+        .effect-20 ~ label{position: absolute; left: 14px; width: 100%; top: 10px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+        .effect-20:focus ~ label, .has-content.effect-20 ~ label{top: -18px; left: 0; font-size: 12px; color: #4caf50; transition: 0.3s;}
+
+
+        :focus{outline: none;}
+
+        /* necessary to give position: relative to parent. */
+        input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+        input[type="password"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+
+        :focus{outline: none;}
+
+        .col-3{
+            position: relative;
+            width: 20%;
+
+        }
+
+
+    </style>
+    <body style="background: #232323">
+
+    <div style="background: #232323;"  class="wrapper" >
+        <form id="formLogin" class="login" name="f" action="${loginUrl}" method="POST" role="form">
+            <center>
+                <div id="demotext">DataLog Voltage System</div>
+                <!--<label style="font-weight: 900; font-size: 20px;" class="col-sm-1 control-label demotext" for="_search_id">DataLog System Login</label>-->
+                <br/>
+                <br/>
+
+                <!--<div style="color: white" class="col-3 input-effect">-->
+                    <!--<input id="j_username" name="j_username" style="color: white" class="effect-20" type="text" placeholder=""/>-->
+
+                    <!--<span class="focus-border">-->
+            	<!--<i><jsp:text/></i>-->
+                <!--</span>-->
+                <!--</div>-->
+
+                <div class="col-3 input-effect">
+                    <input class="effect-20" style="font-size: 20px; width: 100%;" id="j_username" type="text" name="j_username" autocomplete="off" placeholder="${label_security_username}" required="true"/>
+                    <span class="focus-border">
+                    <i><jsp:text/></i>
+                    </span>
+                </div>
+                <br/>
+                <div class="col-3 input-effect">
+
+                    <input style="font-size: 20px; width: 100%;" id="j_password" type="password" name="j_password" autocomplete="off" placeholder="${label_security_password}" required="true"/>
+                    <span class="focus-border">
+                    <i><jsp:text/></i>
+                    </span>
+
+                </div>
+                <button style="width: 20%;" type="submit" id="submit_button">
+                    <!--<i class="spinner"><jsp:text/></i>-->
+                    <span class="state" style="font-size: 20px;">Log in</span>
+                </button>
+            </center>
+            <!--<p class="title"><img class="img-responsive" src="${img_title_login}" style="width: 100%" /> </p>-->
+
+
+
+
+
+            <div style="width: 20%;"  role="alert" id="_alert_login_fail_id" >
+
+                <!--<p  style="color: red; width: 20%; font-weight: 600" id="textError">-->
+                    <!--<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>-->
+                <!--</p>-->
+
+            </div>
+
+
+
+
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <input type="hidden" id="screen_width" name="screen_width" value=""/>
+            <input type="hidden" id="screen_height" name="screen_height" value=""/>
+            <input type="hidden" name="spring-security-redirect" value="${sessionScope.redirect_url}" />
+
+
+
+            <script type="text/javascript">
+                document.getElementById('screen_width').value=screen.width;
+                document.getElementById('screen_height').value=screen.height;
+
+
+                function changeThai() {
+                    window.location.assign("?lang=th")
+                }
+                function changeEng() {
+                    window.location.assign("?lang=en")
+                }
+
+                function dowmloadUser() {
+                    window.location.href = "/GWF/downloadUserManual/user"
+                }
+
+                function dowmloadApprove() {
+                    window.location.href = "/GWF/downloadUserManual/approver"
+                }
+
+                 function dowmloadAccount() {
+                    window.location.href = "/GWF/downloadUserManual/account"
+                }
+
+            </script>
+
+        </form>
+
+
+    </div>
+    </body>
+
+
+    <!--<script type="text/javascript">-->
+
+        <!--// var $form = $('.login');-->
+
+
+        <!--function chceckStatus(){-->
+            <!--var oldText = $('#textError').text()-->
+
+            <!--if(oldText == 'Bad credentials'){-->
+
+
+                <!--$('#textError').empty()-->
+                <!--$('#textError').append('Invalid !!! User Name Or Password')-->
+
+            <!--}-->
+        <!--}-->
+
+        <!--$(document).ready(function() {-->
+
+            <!--var widthScreenStart = window.innerWidth-->
+            <!--if(widthScreenStart > 1200){-->
+                <!--var fixAligment = window.innerWidth/1.5-->
+                <!--$('.login .title').css('width','25%');-->
+                <!--$('.login .title').css('margin-left',fixAligment);-->
+                <!--$('.login').css('height','60%');-->
+                <!--$('input').css('width','25%');-->
+                <!--$('input').css('margin-left',fixAligment);-->
+                <!--$('#_alert_login_fail_id').css('margin-left',fixAligment);-->
+                <!--$('button').css('width','25%');-->
+                <!--$('button').css('margin-left',fixAligment);-->
+                <!--$('body').css('background','url("${url_background}") no-repeat')-->
+                <!--$('a').css('margin-left',fixAligment);-->
+                <!--$('p').css('margin-left',fixAligment);-->
+                <!--$('address').css('margin-left',fixAligment);-->
+
+            <!--}else{-->
+                <!--$('.login .title').css('width','100%');-->
+                <!--$('.login .title').css('margin-left','0');-->
+                <!--$('.login').css('height','95%');-->
+                <!--$('input').css('width','100%');-->
+                <!--$('input').css('margin-left','0');-->
+                <!--$('#_alert_login_fail_id').css('margin-left','0');-->
+                <!--$('button').css('width','100%');-->
+                <!--$('button').css('margin-left','0');-->
+                <!--$('body').css('background','#FFFFFF')-->
+                <!--$('a').css('margin-left','0');-->
+                <!--$('p').css('margin-left','0');-->
+                <!--$('address').css('margin-left','0');-->
+            <!--}-->
+            <!--$("#emailWorkFlow").css('margin-left','0');-->
+            <!--$("#textError").css('margin-left','0');-->
+
+            <!--$( window ).resize(function() {-->
+               <!--var widthScreen = window.innerWidth-->
+
+                <!--if(widthScreen > 1200){-->
+                   <!--var fixAligment = window.innerWidth/1.5-->
+                    <!--$('.login .title').css('width','25%');-->
+                    <!--$('.login .title').css('margin-left',fixAligment);-->
+                    <!--$('.login').css('height','60%');-->
+                    <!--$('input').css('width','25%');-->
+                    <!--$('input').css('margin-left',fixAligment);-->
+                    <!--$('#_alert_login_fail_id').css('margin-left',fixAligment);-->
+                    <!--$('button').css('width','25%');-->
+                    <!--$('button').css('margin-left',fixAligment);-->
+                    <!--$('body').css('background','url("${url_background}") no-repeat')-->
+
+
+                <!--}else{-->
+                    <!--$('.login .title').css('width','100%');-->
+                    <!--$('.login .title').css('margin-left','0');-->
+                    <!--$('.login').css('height','95%');-->
+                    <!--$('input').css('width','100%');-->
+                    <!--$('input').css('margin-left','0');-->
+                    <!--$('#_alert_login_fail_id').css('margin-left','0');-->
+                    <!--$('button').css('width','100%');-->
+                    <!--$('button').css('margin-left','0');-->
+                   <!--$('body').css('background','#FFFFFF')-->
+                <!--}-->
+
+            <!--});-->
+
+
+        <!--});-->
+
+    <!--</script>-->
+
+</div>
