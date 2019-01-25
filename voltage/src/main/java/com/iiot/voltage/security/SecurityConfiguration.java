@@ -46,7 +46,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/resources/scripts/jquery-3.3.1.min.js",
                         "/resources/scripts/util/**",
                         "/resources/scripts/util/AjaxUtil.js",
-
                         "/resources/scripts/util/bootstrap-paginator.js",
                         "/resources/scripts/util/pagingUtil.js"
 
@@ -80,7 +79,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     public CustomAuthenticationSuccessHandler getAuthenticationSuccessHandler() {
         CustomAuthenticationSuccessHandler authenticationHandler = new CustomAuthenticationSuccessHandler();
-        authenticationHandler.setDefaultTargetUrl("/menu");
+        authenticationHandler.setDefaultTargetUrl("/dataLog/history");
         authenticationHandler.setTargetUrlParameter("spring-security-redirect");
 
         return authenticationHandler;

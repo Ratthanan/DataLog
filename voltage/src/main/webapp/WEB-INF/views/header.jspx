@@ -22,6 +22,21 @@
                     </a>
                 </ul>
 
+                <ul class="nav navbar-nav" style="margin-top: 5px">
+                    <a onclick="goHistory()" style="padding-top: 0px;padding-bottom: 0px" ><label id="dashboard" style=" color: white;font-size: 20px; cursor: pointer; margin-top: 10px; margin-right: 10px; margin-left: 40px;"> | &#160;History</label>
+                    </a>
+                </ul>
+
+                <ul class="nav navbar-nav" style="margin-top: 5px">
+                    <a onclick="goMenu()" style="padding-top: 0px;padding-bottom: 0px" ><label id="dashboard" style=" color: white;font-size: 20px; cursor: pointer; margin-top: 10px; margin-right: 10px; margin-left: 2px;"> | &#160;Monitoring</label>
+                    </a>
+                </ul>
+
+                <ul class="nav navbar-nav" style="margin-top: 5px">
+                    <a onclick="goExcelGenerate()" style="padding-top: 0px;padding-bottom: 0px" ><label id="dashboard" style=" color: white;font-size: 20px; cursor: pointer; margin-top: 10px; margin-right: 10px; margin-left: 2px;"> | &#160;Report &#160;|</label>
+                    </a>
+                </ul>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li class="">
                         <label id="logout" style=" color: white;font-size: 20px; cursor: pointer; margin-top: 10px; margin-right: 10px;">| Log out</label>
@@ -50,6 +65,17 @@
  function goMenu() {
             location.href = session['context']+'/menu'
         }
+
+
+        function goHistory() {
+            location.href = session['context']+'/'
+        }
+
+
+        function goExcelGenerate() {
+            location.href = session['context']+'/dataLog/generateExcel'
+        }
+
 
 
         $(document).ready(function () {

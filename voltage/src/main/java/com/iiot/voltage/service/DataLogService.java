@@ -9,7 +9,7 @@ import java.util.Map;
 public interface DataLogService {
 
     public List<DataLog> findDataLogByCriteria(String startDate, String endDate, int firtResult,int maxResult);
-    public Long findDataLogByCriteriaSize(String startDate, String endDate);
+    public List<DataLog>  findDataLogByCriteriaSize(String startDate, String endDate);
     public List<DataLog> findAll();
     public ResponseEntity<String> findById(String id);
 }

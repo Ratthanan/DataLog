@@ -28,7 +28,7 @@ public class SecurityController {
 
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
-        return "index";
+        return "history";
     }
  
     @RequestMapping(value = "/admin", method = RequestMethod.GET)

@@ -19,6 +19,12 @@ $(document).ready(function () {
 
     })
 
+    $('#btn_export').on('click',function () {
+        console.log('btn_export click')
+        generateExcelReport()
+
+    })
+
     $.material.init();
 
 });
@@ -174,4 +180,15 @@ let initCalendat =()=> {
     });
 
 }
+
+
+
+let generateExcelReport =()=> {
+
+     var startDate = $("#search_tim_start").val()=="" ? "": (new Date($("#search_tim_start").val()).getTime()).toString()
+     var endDate = $("#search_tim_end").val()=="" ? "": (new Date($("#search_tim_end").val()).getTime()).toString()
+
+   window.location.href =   session['context']+'/dataLog/downloadHistory?startDate='+startDate+'&endDate='+endDate
+}
+
 

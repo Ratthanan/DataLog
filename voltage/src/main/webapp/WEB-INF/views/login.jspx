@@ -5,308 +5,246 @@
     <jsp:output omit-xml-declaration="yes"/>
     <spring:url value="/resources/j_spring_security_check" var="form_url"/>
     <c:url value="/j_spring_security_check" var="loginUrl" />
-    <!--<spring:url value="/scripts/jquery-3.3.1.min.js" 			var="jquery_js_url" />-->
-    <!--&lt;!&ndash;<spring:url value="/resources/styles/font-awesome.min.css" var="fontAwesome_css_url"/>&ndash;&gt;-->
-    <!--<spring:url value="/resources/images/backgroundLeft.png" var="url_background"/>-->
-
-    <!--<spring:message text="security_login_title" var="title" htmlEscape="false"/>-->
 
 
-    <!--<spring:url value="/resources/images/img-title-login.png" var="img_title_login" />-->
-
-    <!--<script src="${jquery_js_url}" type="text/javascript">&lt;!&ndash; required for FF3 and Opera &ndash;&gt;</script>-->
-    <!--<link rel="stylesheet" type="text/css" href="${fontAwesome_css_url}"/>-->
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>-->
+    <!--<script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>-->
+    <!--<link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />-->
+    <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" />
     <style>
-        /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-        body {
-            margin: 0;
-            font-family: "Open Sans", sans-serif;
-            height: 100vh;
-            /*background: url("${url_background}") no-repeat;*/
-            background: black;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-        @keyframes spinner {
-            0% {
-                transform: rotateZ(0deg);
-            }
-            100% {
-                transform: rotateZ(359deg);
-            }
-        }
         * {
-            box-sizing: border-box;
-        }
-
-        .wrapper {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-            height: 90vh;
-            /*margin-left: 40%;*/
-
-            /*background: #ffffff;*/
-            padding: 10px;
-
-
-
-
-
-        }
-
-        .login {
-
+            margin: 0px;
             padding: 0px;
-            width: 100%;
-            height: 95%;
-            /*background: #ffffff;*/
+        }
 
+        body {
+            background-color: #05182d;
+        }
 
+        @-webkit-keyframes backgroundAnimate {
+            from {
+                left: 0;
+                top: 0;
+            }
+            to {
+                left: -10000px;
+                top: -2000px;
+            }
+        }
 
-            /*background: url("${url_background}");*/
-            /*max-width:100%;*/
-            /*max-height:100%;*/
-            /*background-position: right ;*/
+        @-moz-keyframes backgroundAnimate {
+            from {
+                left: 0;
+                top: 0;
+            }
+            to {
+                left: -10000px;
+                top: -2000px;
+            }
+        }
 
+        @-o-keyframes backgroundAnimate {
+            from {
+                left: 0;
+                top: 0;
+            }
+            to {
+                left: -10000px;
+                top: -2000px;
+            }
+        }
 
+        @keyframes backgroundAnimate {
+            from {
+                left: 0;
+                top: 0;
+            }
+            to {
+                left: -10000px;
+                top: -2000px;
+            }
+        }
 
-
-        }
-        .login.loading button {
-            max-height: 100%;
-            padding-top: 50px;
-        }
-        .login.loading button .spinner {
-            opacity: 1;
-            top: 40%;
-        }
-        .login.ok button {
-            background-color: #8bc34a;
-        }
-        .login.ok button .spinner {
-            border-radius: 0;
-            border-top-color: transparent;
-            border-right-color: transparent;
-            height: 20px;
-            animation: none;
-            transform: rotateZ(-45deg);
-        }
-        .login input {
-            display: block;
-            padding: 15px 10px;
-            margin-bottom: 10px;
-            width: 100%;
-            border: 1px solid #ddd;
-            transition: border-width 0.2s ease;
-            border-radius: 2px;
-            color: #ccc;
-        }
-        .login input + i.fa {
-            color: #fff;
-            font-size: 1em;
-            position: absolute;
-            margin-top: -47px;
-            opacity: 0;
-            left: 0;
-            transition: all 0.1s ease-in;
-        }
-        .login input:focus {
-            outline: none;
-            color: #444;
-            /*border-color: #f35c61;*/
-            /*border-left-width: 35px;*/
-        }
-        .login input:focus + i.fa {
-            opacity: 1;
-            left: 30px;
-            transition: all 0.25s ease-out;
-        }
-        .login a {
-            font-size: 0.8em;
-            color: #2196F3;
-            text-decoration: none;
-        }
-        .login .title {
-            color: #444;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin: 10px 0 30px 0;
-            padding-bottom: 20px;
-        }
-        .login button {
-            width: 100%;
-            height: 100%;
-            padding: 10px 10px;
-            background: #f35c61;
-            color: #fff;
-            display: block;
-            border: none;
-            margin-top: 20px;
-            /*position: absolute;*/
-            left: 0;
-            bottom: 0;
-            max-height: 60px;
-            border: 0px solid rgba(0, 0, 0, 0.1);
-            border-radius: 0 0 2px 2px;
-            transform: rotateZ(0deg);
-            transition: all 0.1s ease-out;
-            border-bottom-width: 7px;
-        }
-        .login button .spinner {
-            display: block;
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            border: 4px solid #ffffff;
-            border-top-color: rgba(255, 255, 255, 0.3);
-            border-radius: 100%;
-            left: 50%;
+        #back {
+            background: url(http://www.tranexnet.com/img/back.png) repeat 20% 20%;
+            position: fixed;
             top: 0;
-            opacity: 0;
-            margin-left: -20px;
-            margin-top: -20px;
-            animation: spinner 0.6s infinite linear;
-            transition: top 0.3s 0.3s ease, opacity 0.3s 0.3s ease, border-radius 0.3s ease;
-            box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-        }
-        .login:not(.loading) button:hover {
-            /*box-shadow: 5px 5px 5px #f3f22b;*/
-            cursor: pointer;
-            /*text-shadow: 0 0 3px #f8ff9d, 0 0 10px #f8ff9d, 0 0 15px #f8ff9d, 0 0 20px #ffff0d, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;*/
-            font-weight: 900;
-            font-size: 25px;
-        }
-        .login:not(.loading) button:focus {
-            border-bottom-width: 4px;
-        }
-
-        .borderFooter{
-            /*border-bottom:1px solid #eee;*/
-            color:#444;
-            font-size:1.2em;b
-        padding-bottom:10px;
-            margin-bottom: 5px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 1;
+            z-index: -1;
+            -webkit-animation-name: backgroundAnimate;
+            /*-webkit-animation-duration: 500s;*/
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-name: backgroundAnimate;
+            /*-moz-animation-duration: 5s;*/
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
+            -o-animation-name: backgroundAnimate;
+            /*-o-animation-duration: 500s;*/
+            -o-animation-timing-function: linear;
+            -o-animation-iteration-count: infinite;
+            animation-name: backgroundAnimate;
+            /*animation-duration: 500s;*/
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
         }
 
-        footer {
-            display: block;
-            padding-top: 50px;
+        #front {
+            background: url(http://www.tranexnet.com/img/front.png) repeat 35% 35%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 1;
+            z-index: -1;
+            -webkit-animation-name: backgroundAnimate;
+            /*-webkit-animation-duration: 300s;*/
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-name: backgroundAnimate;
+            /*-moz-animation-duration: 300s;*/
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
+            -o-animation-name: backgroundAnimate;
+            /*-o-animation-duration: 300s;*/
+            -o-animation-timing-function: linear;
+            -o-animation-iteration-count: infinite;
+            animation-name: backgroundAnimate;
+            /*animation-duration: 300s;*/
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        .h1top {
             text-align: center;
-            color: #ddd;
-            font-weight: normal;
-            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
-            font-size: 0.8em;
+            margin-top: 100px;
+            font-size: 65px;
+            font-weight: bold;
+            text-shadow: 3px 20px 8px rgba(0, 0, 0, 0.5);
+            color: white;
+            mix-blend-mode: multiply;
         }
-        footer a, footer a:link {
-            color: #fff;
+        .ghost-button-rounded-corners {
+            display: inline-block;
+            width: 200px;
+            padding: 8px;
+            color:#133C55;
+            background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+            background-color: unset;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            text-align: center;
+            outline: none;
             text-decoration: none;
         }
-
-        address {
-            display: inline;
+        .ghost-button-rounded-corners:hover{
+            background: rgba(0,0,0,0);
+            color: #3a7999;
+            box-shadow: inset 0 0 0 3px #3a7999;
+        }
+        .container {
+            padding: 2em;
+        }
+        button,
+        button::after {
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
         }
 
-
-
-        #demotext {
-            color: #FFFFFF;
-            background: #232323;
-            text-shadow: 0 0 3px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
-            color: #FFFFFF;
-            background: #232323;
-            font-weight: 900;
+        button {
+            background: none;
+            border: 3px solid #fff;
+            border-radius: 5px;
+            color: #fff;
+            display: block;
             font-size: 30px;
-        }
-
-
-        /*.col-3{}*/
-        .effect-20{border: 3px solid #ccc; padding: 7px 14px; transition: 0.4s; background: transparent;}
-
-
-
-        .effect-20 ~ .focus-border:before,
-        .effect-20 ~ .focus-border:after{content: ""; position: absolute; top: 0; left: 0; width: 0; height: 2px; background-color: #4caf50; transition: 0.3s;}
-        .effect-20 ~ .focus-border:after{top: auto; bottom: 0; left: auto; right: 0;}
-        .effect-20 ~ .focus-border i:before,
-        .effect-20 ~ .focus-border i:after{content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 0; background-color: #4caf50; transition: 0.4s;}
-        .effect-20 ~ .focus-border i:after{left: auto; right: 0; top: auto; bottom: 0;}
-        .effect-20:focus ~ .focus-border:before,
-        .effect-20:focus ~ .focus-border:after,
-        .has-content.effect-20 ~ .focus-border:before,
-        .has-content.effect-20 ~ .focus-border:after{width: 100%; transition: 0.3s;}
-        .effect-20:focus ~ .focus-border i:before,
-        .effect-20:focus ~ .focus-border i:after,
-        .has-content.effect-20 ~ .focus-border i:before,
-        .has-content.effect-20 ~ .focus-border i:after{height: 100%; transition: 0.4s;}
-        .effect-20 ~ label{position: absolute; left: 14px; width: 100%; top: 10px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
-        .effect-20:focus ~ label, .has-content.effect-20 ~ label{top: -18px; left: 0; font-size: 12px; color: #4caf50; transition: 0.3s;}
-
-
-        :focus{outline: none;}
-
-        /* necessary to give position: relative to parent. */
-        input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
-        input[type="password"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
-
-        :focus{outline: none;}
-
-        .col-3{
+            font-weight: 150px;
+            margin: auto;
+            padding: 15px 100px;
             position: relative;
-            width: 20%;
-
+            text-transform: uppercase;
         }
 
+        button::before,
+        button::after {
+            background: #fff;
+            content: '';
+            position: absolute;
+            z-index: -1;
+        }
 
+        button:hover {
+            color: #517fa4;
+        }
+
+        .btn-5 {
+            overflow: hidden;
+        }
+
+        .btn-5::after {
+            /*background-color: #f00;*/
+            height: 100%;
+            left: -45%;
+            top: 0;
+            transform: skew(50deg);
+            transition-duration: 0.6s;
+            transform-origin: top left;
+            width: 0;
+        }
+
+        .btn-5:hover:after {
+            height: 150%;
+            width: 150%;
+        }
     </style>
-    <body style="background: #232323">
 
-    <div style="background: #232323;"  class="wrapper" >
+
+    <body>
+
+    <div id="back"></div>
+    <div id="front"></div>
         <form id="formLogin" class="login" name="f" action="${loginUrl}" method="POST" role="form">
-            <center>
-                <div id="demotext">DataLog Voltage System</div>
-                <!--<label style="font-weight: 900; font-size: 20px;" class="col-sm-1 control-label demotext" for="_search_id">DataLog System Login</label>-->
-                <br/>
-                <br/>
 
-                <!--<div style="color: white" class="col-3 input-effect">-->
-                    <!--<input id="j_username" name="j_username" style="color: white" class="effect-20" type="text" placeholder=""/>-->
 
-                    <!--<span class="focus-border">-->
-            	<!--<i><jsp:text/></i>-->
-                <!--</span>-->
-                <!--</div>-->
+            <div  class="row">
+                <div class="col-ms-12">
+                    <div class="text-center-1 margin-100">
+                        <h1 class="h1top"><strong>DATA LOG SYSTEM</strong></h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-4 col-md-4">
+                            <div style="text-align: center;margin-top: 60px;">
+                                <div class="form-group has-success">
+                                    <input type="text" class="form-control" id="j_username"  name="j_username" autocomplete="off" placeholder="${label_security_username}" required="true" style="text-align: left;height: 50px;width: 100%;font-size: 30px"/>
 
-                <div class="col-3 input-effect">
-                    <input class="effect-20" style="font-size: 20px; width: 100%;" id="j_username" type="text" name="j_username" autocomplete="off" placeholder="${label_security_username}" required="true"/>
-                    <span class="focus-border">
-                    <i><jsp:text/></i>
-                    </span>
+                                </div>
+                            </div>
+                            <div style="text-align: center;margin-top: 30px;">
+                                <div class="form-group has-success">
+                                    <input type="password" class="form-control" id="j_password" name="j_password" autocomplete="off" placeholder="${label_security_password}" required="true" style="text-align: left;height: 50px;width: 100%;font-size: 30px"/>
+                                </div>
+                            </div>
+                            <div style="text-align: center;margin-top: 40px;">
+                                <button class="btn-5" type="submit">
+                                    <strong style="text-size-adjust: 20px">Login</strong>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <br/>
-                <div class="col-3 input-effect">
-
-                    <input style="font-size: 20px; width: 100%;" id="j_password" type="password" name="j_password" autocomplete="off" placeholder="${label_security_password}" required="true"/>
-                    <span class="focus-border">
-                    <i><jsp:text/></i>
-                    </span>
-
-                </div>
-                <button style="width: 20%;" type="submit" id="submit_button">
-                    <!--<i class="spinner"><jsp:text/></i>-->
-                    <span class="state" style="font-size: 20px;">Log in</span>
-                </button>
-            </center>
-            <!--<p class="title"><img class="img-responsive" src="${img_title_login}" style="width: 100%" /> </p>-->
-
-
-
+            </div>
 
 
             <div style="width: 20%;"  role="alert" id="_alert_login_fail_id" >
@@ -327,124 +265,39 @@
 
 
 
-            <script type="text/javascript">
-                document.getElementById('screen_width').value=screen.width;
-                document.getElementById('screen_height').value=screen.height;
 
-
-                function changeThai() {
-                    window.location.assign("?lang=th")
-                }
-                function changeEng() {
-                    window.location.assign("?lang=en")
-                }
-
-                function dowmloadUser() {
-                    window.location.href = "/GWF/downloadUserManual/user"
-                }
-
-                function dowmloadApprove() {
-                    window.location.href = "/GWF/downloadUserManual/approver"
-                }
-
-                 function dowmloadAccount() {
-                    window.location.href = "/GWF/downloadUserManual/account"
-                }
-
-            </script>
 
         </form>
 
 
-    </div>
+
     </body>
 
 
-    <!--<script type="text/javascript">-->
-
-        <!--// var $form = $('.login');-->
-
-
-        <!--function chceckStatus(){-->
-            <!--var oldText = $('#textError').text()-->
-
-            <!--if(oldText == 'Bad credentials'){-->
+    <script type="text/javascript">
+        document.getElementById('screen_width').value=screen.width;
+        document.getElementById('screen_height').value=screen.height;
 
 
-                <!--$('#textError').empty()-->
-                <!--$('#textError').append('Invalid !!! User Name Or Password')-->
+        function changeThai() {
+            window.location.assign("?lang=th")
+        }
+        function changeEng() {
+            window.location.assign("?lang=en")
+        }
 
-            <!--}-->
-        <!--}-->
+        function dowmloadUser() {
+            window.location.href = "/GWF/downloadUserManual/user"
+        }
 
-        <!--$(document).ready(function() {-->
+        function dowmloadApprove() {
+            window.location.href = "/GWF/downloadUserManual/approver"
+        }
 
-            <!--var widthScreenStart = window.innerWidth-->
-            <!--if(widthScreenStart > 1200){-->
-                <!--var fixAligment = window.innerWidth/1.5-->
-                <!--$('.login .title').css('width','25%');-->
-                <!--$('.login .title').css('margin-left',fixAligment);-->
-                <!--$('.login').css('height','60%');-->
-                <!--$('input').css('width','25%');-->
-                <!--$('input').css('margin-left',fixAligment);-->
-                <!--$('#_alert_login_fail_id').css('margin-left',fixAligment);-->
-                <!--$('button').css('width','25%');-->
-                <!--$('button').css('margin-left',fixAligment);-->
-                <!--$('body').css('background','url("${url_background}") no-repeat')-->
-                <!--$('a').css('margin-left',fixAligment);-->
-                <!--$('p').css('margin-left',fixAligment);-->
-                <!--$('address').css('margin-left',fixAligment);-->
+        function dowmloadAccount() {
+            window.location.href = "/GWF/downloadUserManual/account"
+        }
 
-            <!--}else{-->
-                <!--$('.login .title').css('width','100%');-->
-                <!--$('.login .title').css('margin-left','0');-->
-                <!--$('.login').css('height','95%');-->
-                <!--$('input').css('width','100%');-->
-                <!--$('input').css('margin-left','0');-->
-                <!--$('#_alert_login_fail_id').css('margin-left','0');-->
-                <!--$('button').css('width','100%');-->
-                <!--$('button').css('margin-left','0');-->
-                <!--$('body').css('background','#FFFFFF')-->
-                <!--$('a').css('margin-left','0');-->
-                <!--$('p').css('margin-left','0');-->
-                <!--$('address').css('margin-left','0');-->
-            <!--}-->
-            <!--$("#emailWorkFlow").css('margin-left','0');-->
-            <!--$("#textError").css('margin-left','0');-->
-
-            <!--$( window ).resize(function() {-->
-               <!--var widthScreen = window.innerWidth-->
-
-                <!--if(widthScreen > 1200){-->
-                   <!--var fixAligment = window.innerWidth/1.5-->
-                    <!--$('.login .title').css('width','25%');-->
-                    <!--$('.login .title').css('margin-left',fixAligment);-->
-                    <!--$('.login').css('height','60%');-->
-                    <!--$('input').css('width','25%');-->
-                    <!--$('input').css('margin-left',fixAligment);-->
-                    <!--$('#_alert_login_fail_id').css('margin-left',fixAligment);-->
-                    <!--$('button').css('width','25%');-->
-                    <!--$('button').css('margin-left',fixAligment);-->
-                    <!--$('body').css('background','url("${url_background}") no-repeat')-->
-
-
-                <!--}else{-->
-                    <!--$('.login .title').css('width','100%');-->
-                    <!--$('.login .title').css('margin-left','0');-->
-                    <!--$('.login').css('height','95%');-->
-                    <!--$('input').css('width','100%');-->
-                    <!--$('input').css('margin-left','0');-->
-                    <!--$('#_alert_login_fail_id').css('margin-left','0');-->
-                    <!--$('button').css('width','100%');-->
-                    <!--$('button').css('margin-left','0');-->
-                   <!--$('body').css('background','#FFFFFF')-->
-                <!--}-->
-
-            <!--});-->
-
-
-        <!--});-->
-
-    <!--</script>-->
+    </script>
 
 </div>

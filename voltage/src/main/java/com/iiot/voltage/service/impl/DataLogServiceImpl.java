@@ -51,8 +51,8 @@ public class DataLogServiceImpl  implements DataLogService {
 			LOGGER.info(" ### DataLogServiceImpl[findDataLogByCriteria] Data [{}, {}, {}, {}] ### ",startDate,endDate,firtResult,maxResult);
 			Query query = new Query();
 			if((!"".equals(startDate) && startDate != null) && (!"".equals(endDate) && endDate != null)){
-//				query.addCriteria(Criteria.where("createdDate").lte((new Date(Long.valueOf(endDate)).getTime())).gte(new Date(Long.valueOf(endDate)).getTime()));
                 query.addCriteria(Criteria.where("createDate").gt(Double.valueOf(startDate)).lt(Double.valueOf(endDate)));
+				query.with(new Sort(DESC,"createDate"));
 			}
 			query.skip(firtResult);
 			query.limit(maxResult);
@@ -67,7 +67,7 @@ public class DataLogServiceImpl  implements DataLogService {
 	}
 
 	@Override
-	public Long findDataLogByCriteriaSize(String startDate, String endDate) {
+	public List<DataLog>  findDataLogByCriteriaSize(String startDate, String endDate) {
 		try{
 			LOGGER.info(" ### DataLogServiceImpl[findDataLogByCriteriaSize] Data [{}, {}] ### ",startDate,endDate);
 
@@ -77,7 +77,7 @@ public class DataLogServiceImpl  implements DataLogService {
                 query.addCriteria(Criteria.where("createDate").gt(Double.valueOf(startDate)).lt(Double.valueOf(endDate)));
 			}
 			List<DataLog> dataLogList = mongoTemplate.find(query,DataLog.class);
-			return  Long.valueOf(dataLogList.size());
+			return  dataLogList;
 		}catch (Exception e){
 			LOGGER.error(" ### DataLogService[findDataLogByCriteriaSize] Msg : Exception");
 			e.printStackTrace();
