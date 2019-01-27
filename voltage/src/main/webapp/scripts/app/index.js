@@ -27,6 +27,24 @@ $(document).ready(function () {
 
     $.material.init();
 
+
+    $("#search_tim_start").flatpickr({
+        dateFormat : "Y-m-d H:i",
+        enableTime : true
+    });
+
+    $("#imageCalendarSearch_tim_start").on('click',function () {
+        $("#search_tim_start").focus()
+    });
+
+    $("#search_tim_end").flatpickr({
+        dateFormat : "Y-m-d H:i",
+        enableTime : true
+    });
+
+    $("#imageCalendarSearch_tim_end").on('click',function () {
+        $("#search_tim_end").focus()
+    });
 });
 
 
@@ -87,8 +105,8 @@ let queryDataLog = (criteriaObject) =>{
                 var fullDate = day + '/' + monthIndex+1 + '/' + year+ ' '+time;
 
                 $('#dataLogBody').append('' +
-                    '<tr id="'+UID+'" '+
-                    ((j%2 == 0) ? ' class="trwhite" ' : ' class="trlightgray"')+'>'+
+                    '<tr '+
+                    ((j%2 == 0) ? ' style="background:#ffffff; margin-top: 5px;" ' : ' style="background:#c6d5ff; margin-top: 5px;"')+'>'+
                     '<td class="text-center">'+UID+'</td>'+
                     '<td class="text-center">'+(cout % 2 == 0 ? '0' : '1')+'</td>'+
                     '<td class="text-center">'+fullDate+'</td>'+

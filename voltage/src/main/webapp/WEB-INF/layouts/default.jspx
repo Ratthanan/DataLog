@@ -62,7 +62,7 @@
     <div class="lds-ring" style="position: absolute; background-color: rgba(52,0,23,0.17); display: none;"><div><jsp:text/></div><div><jsp:text/></div><div><jsp:text/></div><div><jsp:text/></div></div>
     <body class="tundra spring" >
         <tiles:insertAttribute name="header" ignore="true" />
-        <div class="container-mp" style="background-color:#ffffff" >
+        <div class="container-mp" style="background-color:#e8f6f6" >
             <!-- Push Wrapper -->
             <div style="padding-top: 0px;">
                 <tiles:insertAttribute name="menu" ignore="true" />

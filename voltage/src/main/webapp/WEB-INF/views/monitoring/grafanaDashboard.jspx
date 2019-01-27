@@ -34,15 +34,15 @@
 
     <script type="text/javascript">
         <![CDATA[
-          var $CRITERIA_PAGE    =   '${criteria_page}';
-            var $MESSAGE_NO_DATA = '${MESSAGE_NO_DATA}';
-            var $MESSAGE_DELETE_SUCCESS = '${MESSAGE_DELETE_SUCCESS}';
-            var $MESSAGE_DELETE_CANCELED = '${MESSAGE_DELETE_CANCELED}';
+        var $CRITERIA_PAGE    =   '${criteria_page}';
+        var $MESSAGE_NO_DATA = '${MESSAGE_NO_DATA}';
+        var $MESSAGE_DELETE_SUCCESS = '${MESSAGE_DELETE_SUCCESS}';
+        var $MESSAGE_DELETE_CANCELED = '${MESSAGE_DELETE_CANCELED}';
 
-            var $LABEL_ALERT = '${LABEL_ALERT}';
+        var $LABEL_ALERT = '${LABEL_ALERT}';
 
-            var $BUTTON_EDIT = '${BUTTON_EDIT}';
-            var $BUTTON_DELETE = '${BUTTON_DELETE}';
+        var $BUTTON_EDIT = '${BUTTON_EDIT}';
+        var $BUTTON_DELETE = '${BUTTON_DELETE}';
 
         var MSG_SESSION_EXPIRE = '${MESSAGE_SESSION_HAS_EXPIRE}'
         var session = {
@@ -92,8 +92,8 @@
 
         /*thead,tr,td,th,tbody*/
         /*{*/
-            /*border-collapse: collapse;*/
-            /*!*border: 1px solid black;*!*/
+        /*border-collapse: collapse;*/
+        /*!*border: 1px solid black;*!*/
 
         /*}*/
 
@@ -104,88 +104,15 @@
         <div class="control-label paddingTop">
             <div>
 
-
-
-                <div class="row">
-                    <div class="form-group">
-
-                        <label style="color: #2c3e50; font-weight: 900; font-size: 20px;" class="col-sm-offset-0 col-sm-2 control-label text-right" for="_search_id">Start Date</label>
-                        <div class="col-sm-4">
-                            <div class="input-group">
-                                <input class="form-control border" id="search_tim_start" type="text" style="color: #2c3e50; font-weight: 900;" placeholder="${LABEL_PLACEHOLDER_DATE_START}"/>
-                                <span class="input-group-addon"><a id="imageCalendarSearch_tim_start"><i class="fa fa-calendar fa-2x" style="color: #2c3e50"><jsp:text/></i></a></span>
-                            </div>
-                        </div>
-                        <label style="color: #2c3e50; font-weight: 900; font-size: 20px;" class="col-sm-2 control-label text-right" for="_search_id">End Date</label>
-                        <div class="col-sm-3">
-                            <div class="input-group">
-                                <input class="form-control border" id="search_tim_end" type="text" style="color: #2c3e50; font-weight: 900;" placeholder="${LABEL_PLACEHOLDER_DATE_START}"/>
-                                <span class="input-group-addon"><a id="imageCalendarSearch_tim_end"><i class="fa fa-calendar fa-2x" style="color: #2c3e50"><jsp:text/></i></a></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-
-                        <label style="color: #2c3e50; font-weight: 900; font-size: 20px;" class="col-sm-offset-1 col-sm-1 control-label" for="_search_id">Device</label>
-                        <div class="col-sm-4">
-                            <div class="input-group col-sm-10">
-                                <select style="font-weight: 900; color: #2c3e50; font-size: 16px;" id="modal_edit_locationTo" class="form-control">
-                                    <option value="">All</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <label style="color: #2c3e50; font-weight: 900; font-size: 20px;" class="col-sm-2 control-label text-right" for="_search_id">Voltage </label>
-                        <div class="col-sm-3">
-                            <div class="input-group col-sm-10">
-                                <input class="form-control border" id="voltage" type="text" style="color: #2c3e50; font-weight: 900;" />
-
-                            </div>
-                        </div>
-
-
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group">
-
-                        <div  class="col-sm-offset-5 col-sm-1">
-                            <button style="border-radius: 9%; font-size: 20px; font-weight: 900; margin-left: 0px; background: black" class="btn btn-primary" type="button" id="btn_search">
-                                <span style="color: #de542b"  class="glyphicon glyphicon-search" aria-hidden="true"><jsp:text/></span> Search
-                            </button>
-
-                        </div>
-
-
-                    </div>
-                </div>
+                Wait for implement !!!
 
 
 
 
-                <table style="margin-top: 10px;"  class="table">
-                    <thead>
-                    <tr style=" font-weight: 900; font-size: 20px; background: #2C3E50; color: white; border: 0px solid black;">
-                        <th class="center-align" >Device</th>
-                        <th class="center-align">Voltage</th>
-                        <th class="center-align">Time</th>
-                        <!--<th class="center-align">TIM</th>-->
-                    </tr>
 
-                    </thead>
-                    <tbody id="dataLogBody">
-                    </tbody>
-                </table>
 
             </div>
-            <div class="form-group">
-                <util:pagingutil id="pagingSearchDataLogBody"/>
-            </div>
+
         </div>
 
 
