@@ -222,4 +222,12 @@ public class DataLogController {
     }
 
 
+    @GetMapping("/monitoring")
+    public String monitoring(){
+
+        return "grafanaDashboard";
+    }
+
+
+
 }

@@ -1,4 +1,4 @@
-console.log('Paging Util')
+
 var UtilPagination = new function(){
 	_this = this;
 	this.id;
