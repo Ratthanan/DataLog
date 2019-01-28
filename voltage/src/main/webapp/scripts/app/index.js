@@ -78,6 +78,13 @@ let queryDataLog = (criteriaObject) =>{
 
 
         $('#dataLogBody').empty();
+        $('#dataLogBody').append('' +
+            '<div style="margin-top: 10px; margin-left: 0px; margin-right: 0px;" class="row">' +
+            '<div class="col-sm-3 styleHeader">Device</div>' +
+            '<div class="col-sm-3 styleHeader_1">Voltage</div>' +
+            '<div class="col-sm-3 styleHeader">Time</div>' +
+            '<div class="col-sm-2 styleHeader_2">Action</div>' +
+            '</div>')
         if(item.length > 0 && item != null){
             $dataForQuery = item;
             var itemIdTmp ;
@@ -104,16 +111,24 @@ let queryDataLog = (criteriaObject) =>{
                 var time = TIM.getHours() + ':' + TIM.getMinutes()
                 var fullDate = day + '/' + monthIndex+1 + '/' + year+ ' '+time;
 
-                $('#dataLogBody').append('' +
-                    '<tr '+
-                    ((j%2 == 0) ? ' style="background:#ffffff; margin-top: 5px;" ' : ' style="background:#c6d5ff; margin-top: 5px;"')+'>'+
-                    '<td class="text-center">'+UID+'</td>'+
-                    '<td class="text-center">'+(cout % 2 == 0 ? '0' : '1')+'</td>'+
-                    '<td class="text-center">'+fullDate+'</td>'+
-                    // '<td class="text-center">'+fullDate+'</td>'+
+                // $('#dataLogBody').append('' +
+                //     '<tr '+
+                //     ((j%2 == 0) ? ' style="background:#ffffff; margin-top: 5px;" ' : ' style="background:#c6d5ff; margin-top: 5px;"')+'>'+
+                //     '<td class="text-center">'+UID+'</td>'+
+                //     '<td class="text-center">'+(cout % 2 == 0 ? '0' : '1')+'</td>'+
+                //     '<td class="text-center">'+fullDate+'</td>'+
+                //     // '<td class="text-center">'+fullDate+'</td>'+
+                //
+                //     '</tr>'+
+                //     '')
 
-                    '</tr>'+
-                    '')
+                $('#dataLogBody').append('' +
+                        '<div style="margin-top: 10px; margin-left: 20px; margin-right: 0px;" class="row">' +
+                        '<div class="col-sm-3 styleColumn_1">'+UID+'</div>' +
+                        '<div class="col-sm-3 styleColumn_1">'+(cout % 2 == 0 ? '0' : '1')+'</div>' +
+                        '<div class="col-sm-3 styleColumn_1">'+fullDate+'</div>' +
+                        '<div style="margin-left: 15px;" class="col-sm-2 styleColumn_1">'+'<jsp:text/><br/>'+'</div>' +
+                    '</div>')
 
             }
 

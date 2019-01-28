@@ -97,6 +97,80 @@
 
         /*}*/
 
+        .styleHeader{
+            font-size: 30px;
+            color: #de542b;
+            text-align: center;
+            font-weight: 900;
+            background: #000000;
+            margin-left: 5px;
+            /*border-bottom-left-radius: 20%;*/
+            /*border-top-right-radius: 20%;*/
+            /*border-radius: 20%;*/
+        }
+
+
+        .styleHeader_1{
+            font-size: 30px;
+            color: #de542b;
+            text-align: center;
+            font-weight: 900;
+            background: #000000;
+            margin-left: 5px;
+            /*border-top-left-radius: 20%;*/
+            /*border-bottom-right-radius: 20%;*/
+            /*border-radius: 20%;*/
+        }
+
+        .styleHeader_2{
+            font-size: 30px;
+            color: #de542b;
+            text-align: center;
+            font-weight: 900;
+            background: #000000;
+            margin-left: 5px;
+            /*border-top-left-radius: 20%;*/
+            /*border-top-right-radius: 20%;*/
+            /*border-bottom-right-radius: 20%;*/
+            /*border-radius: 20%;*/
+        }
+        .styleColumn_1{
+
+            font-size: 15px;
+            color: white;
+            text-align: center;
+            font-weight: 900;
+            background: rgb(0, 0, 0);
+            margin-left: 0px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            /*border-top-left-radius: 20%;*/
+            /*border-bottom-right-radius: 20%;*/
+
+        }
+        .styleColumn_2{
+            font-size: 15px;
+            color: white;
+            text-align: center;
+            font-weight: 900;
+            background: #f906;
+            margin-left: 5px;
+            /*border-bottom-left-radius: 20%;*/
+            /*border-top-right-radius: 20%;*/
+
+        }
+
+        .styleColumn_3{
+            font-size: 15px;
+            color: white;
+            text-align: center;
+            font-weight: 900;
+            background: #f906;
+            margin-left: 5px;
+            /*border-top-left-radius: 20%;*/
+            /*border-bottom-right-radius: 20%;*/
+
+        }
     </style>
 
     <body >
@@ -166,26 +240,41 @@
                 </div>
 
 
+                    <!--<div style="margin-top: 30px; margin-left: 0px; margin-right: 0px; width: 100%" class="row">-->
+                        <!--<div class="col-sm-3 styleHeader">Device</div>-->
+                        <!--<div class="col-sm-3 styleHeader">Voltage</div>-->
+                        <!--<div class="col-sm-3 styleHeader">Time</div>-->
+                        <!--<div class="col-sm-2 styleHeader">Action</div>-->
+                    <!--</div>-->
 
+                <div id="dataLogBody" class="row">
+                   <jsp:text/>
+                </div>
 
-                <table style="margin-top: 10px;"  class="table">
-                    <thead>
-                    <tr style=" font-weight: 900; font-size: 20px; background: #2C3E50; color: white; border: 0px solid black;">
-                        <th class="center-align" >Device</th>
-                        <th class="center-align">Voltage</th>
-                        <th class="center-align">Time</th>
-                        <!--<th class="center-align">TIM</th>-->
-                    </tr>
+                <!--<table style="margin-top: 10px;"  class="table">-->
+                    <!--<thead>-->
+                    <!--<tr style=" font-weight: 900; font-size: 20px; background: #2C3E50; color: white; border: 0px solid black;">-->
+                        <!--<th class="center-align" >Device</th>-->
+                        <!--<th class="center-align">Voltage</th>-->
+                        <!--<th class="center-align">Time</th>-->
+                        <!--&lt;!&ndash;<th class="center-align">TIM</th>&ndash;&gt;-->
+                    <!--</tr>-->
 
-                    </thead>
-                    <tbody id="dataLogBody">
-                    </tbody>
-                </table>
+                    <!--</thead>-->
+                    <!--<tbody id="dataLogBody">-->
+                    <!--</tbody>-->
+                <!--</table>-->
 
             </div>
-            <div class="form-group">
+
+
+
+            <div style="margin-top: 10px;" class="form-group">
                 <util:pagingutil id="pagingSearchDataLogBody"/>
             </div>
+
+
+
         </div>
 
 

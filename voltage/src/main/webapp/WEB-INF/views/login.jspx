@@ -82,19 +82,19 @@
             opacity: 1;
             z-index: -1;
             -webkit-animation-name: backgroundAnimate;
-            /*-webkit-animation-duration: 500s;*/
+            -webkit-animation-duration: 500s;
             -webkit-animation-timing-function: linear;
             -webkit-animation-iteration-count: infinite;
             -moz-animation-name: backgroundAnimate;
-            /*-moz-animation-duration: 5s;*/
+            -moz-animation-duration: 5s;
             -moz-animation-timing-function: linear;
             -moz-animation-iteration-count: infinite;
             -o-animation-name: backgroundAnimate;
-            /*-o-animation-duration: 500s;*/
+            -o-animation-duration: 500s;
             -o-animation-timing-function: linear;
             -o-animation-iteration-count: infinite;
             animation-name: backgroundAnimate;
-            /*animation-duration: 500s;*/
+            animation-duration: 500s;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
         }
@@ -109,19 +109,19 @@
             opacity: 1;
             z-index: -1;
             -webkit-animation-name: backgroundAnimate;
-            /*-webkit-animation-duration: 300s;*/
+            -webkit-animation-duration: 300s;
             -webkit-animation-timing-function: linear;
             -webkit-animation-iteration-count: infinite;
             -moz-animation-name: backgroundAnimate;
-            /*-moz-animation-duration: 300s;*/
+            -moz-animation-duration: 300s;
             -moz-animation-timing-function: linear;
             -moz-animation-iteration-count: infinite;
             -o-animation-name: backgroundAnimate;
-            /*-o-animation-duration: 300s;*/
+            -o-animation-duration: 300s;
             -o-animation-timing-function: linear;
             -o-animation-iteration-count: infinite;
             animation-name: backgroundAnimate;
-            /*animation-duration: 300s;*/
+            animation-duration: 300s;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
         }
@@ -130,9 +130,9 @@
             margin-top: 100px;
             font-size: 65px;
             font-weight: bold;
-            text-shadow: 3px 20px 8px rgba(0, 0, 0, 0.5);
+            text-shadow: 3px 20px 8px rgba(156, 255, 182, 0.5);
             color: white;
-            mix-blend-mode: multiply;
+            /*mix-blend-mode: multiply;*/
         }
         .ghost-button-rounded-corners {
             display: inline-block;
@@ -213,8 +213,7 @@
 
     <body>
 
-    <div id="back"></div>
-    <div id="front"></div>
+
         <form id="formLogin" class="login" name="f" action="${loginUrl}" method="POST" role="form">
 
 
@@ -273,6 +272,8 @@
 
     </body>
 
+    <div id="back"></div>
+    <div id="front"></div>
 
     <script type="text/javascript">
         document.getElementById('screen_width').value=screen.width;
