@@ -21,6 +21,7 @@ $(document).ready(function () {
         console.log('=== currentDate'+currentDate+'  === full format'+new Date(currentDate)+''  );
 
         searchDataHistory(dateStart,currentDate)
+        renderCanvas(dataLog)
 
 
     }, 60000)
@@ -109,36 +110,23 @@ let initDataLog = ()=> {
             color: "#7afd00",
             yValueFormatString: "#,##0K",
             dataPoints: [
-                { x: new Date(2017, 1, 1,1,1), y: 1 },
-                { x: new Date(2017, 1, 2,2,1), y: 2 },
-                { x: new Date(2017, 1, 3,3,1), y: 3 },
-                { x: new Date(2017, 1, 4,4,1), y: 1 },
-                { x: new Date(2017, 1, 5,5,1), y: 3 },
-                { x: new Date(2017, 1, 6,6,1), y: 4 },
-                { x: new Date(2017, 1, 7,7,1), y: 0 },
-                { x: new Date(2017, 1, 8,8,1), y: 1 },
-                { x: new Date(2017, 1, 9,9,1), y: 2 },
-                { x: new Date(2017, 1, 10,10,1), y: 3 },
-                { x: new Date(2017, 1, 11,11,1), y: 2 },
-                { x: new Date(2017, 1, 12,12,1), y: 1 },
-                { x: new Date(2017, 1, 13,13,1), y: 0 },
-                { x: new Date(2017, 1, 14,14,1), y: 5},
-                { x: new Date(2017, 1, 15,15,1), y: 2 },
-                { x: new Date(2017, 1, 16,16,1), y: 2 },
-                { x: new Date(2017, 1, 17,17,1), y: 2 },
-                { x: new Date(2017, 1, 18,18,1), y: 3 },
-                { x: new Date(2017, 1, 19,19,1), y: 1 },
-                { x: new Date(2017, 1, 20,1,1), y: 3 },
-                { x: new Date(2017, 1, 21,2,1), y: 4 },
-                { x: new Date(2017, 1, 22,3,1), y: 4 },
-                { x: new Date(2017, 1, 23,4,1), y: 2 },
-                { x: new Date(2017, 1, 24,5,1), y: 0 },
-                { x: new Date(2017, 1, 25,6,1), y: 0 },
-                { x: new Date(2017, 1, 26,7,1), y: 0 },
-                { x: new Date(2017, 1, 28,8,1), y: 0 },
+                { x: new Date(2019, 1-1, 31,1,1), y: 1 },
+                { x: new Date(2019, 1-1, 31,1,2), y: 2 },
+                { x: new Date(2019, 1-1, 31,1,3), y: 3 },
+                { x: new Date(2019, 1-1, 31,1,4), y: 1 },
+                { x: new Date(2019, 1-1, 31,1,5), y: 3 },
+                { x: new Date(2019, 1-1, 31,1,6), y: 4 },
+                { x: new Date(2019, 1-1, 31,1,7), y: 0 },
+                { x: new Date(2019, 1-1, 31,1,8), y: 1 },
+                { x: new Date(2019, 1-1, 31,1,9), y: 2 },
+                { x: new Date(2019, 1-1, 31,1,10), y: 3 },
+                { x: new Date(2019, 1-1, 31,1,11), y: 2 },
+                { x: new Date(2019, 1-1, 31,1,12), y: 1 }
 
 
-                // { x: new Date(2017, 2, 16,14,28 ), y: 67 }
+
+
+                // { x: new Date(2019, 2, 16,14,28 ), y: 67 }
 
             ]
         }
