@@ -1,14 +1,14 @@
 let options;
 let initDate = new Date().format('yyyy-mm-dd HH:M')
-let firstTime = new Date(initDate).setMinutes(new Date(initDate).getMinutes() -5)
+let firstTime = new Date(initDate).setMinutes(new Date(initDate).getMinutes() -10)
 let dateStarted = new Date(firstTime).setSeconds(0)
 let dataLog;
 let dataLogJSON ;
 $(document).ready(function () {
 
+    initDataLog();
+    firstReload()
 
-
-        initDataLog();
         setValueGraph();
 
     setInterval(function(){
@@ -53,7 +53,7 @@ let toogleDataSeries = (e)=> {
 
 let searchDataHistory = (startDate,endDate) =>{
 
-    dataLogJSON = $.ajax({
+      $.ajax({
         url:session['context']+'/dataLog/findDataLogByCriteria',
         headers: {
             Accept : "application/json"
@@ -65,8 +65,35 @@ let searchDataHistory = (startDate,endDate) =>{
             maxResult: 100
         },
         type: "GET",
-        async: false
-    }).responseJSON;
+        async: false,
+        error: function(){
+            console.log('Fail ')
+        },
+        complete: function(xhr){
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    let result = JSON.parse(xhr.responseText)
+                    console.log('Size Json '+result.length)
+                    let arrResult = []
+                    for(let i =0; i<result.length; i++){
+
+                        let map = {
+                            x : new Date(new Date(result[i].createDate).setSeconds(0)) ,
+                            // y : Math.floor((Math.random() * 5) + 0)
+                            y : i % 2 === 0 ? 1 : 0
+                        }
+
+                        arrResult.push(map)
+                    }
+                    dataLog.data[0].dataPoints =  arrResult
+                }
+            }
+           
+        }
+    });
+
+
+
 
 
 }
@@ -80,10 +107,10 @@ let initDataLog = ()=> {
         animationEnabled: true,
         theme: "light2",
         title: {
-            text: "Data log"
+            text: "Monitoring Real-Time"
         },
         axisX: {
-            valueFormatString: "DD MMM, YYYY"
+            valueFormatString: "HH:mm"
         },
         axisY: {
             title: "Value of Voltage",
@@ -106,7 +133,7 @@ let initDataLog = ()=> {
             showInLegend: true,
             name: "DataLog Graph",
             markerType: "square",
-            xValueFormatString: "DD MMM, YYYY HH:mm",
+            xValueFormatString: "DD-MMM-YYYY HH:mm:ss",
             color: "#7afd00",
             yValueFormatString: "#,##0K",
             dataPoints: [
@@ -136,4 +163,17 @@ let initDataLog = ()=> {
 
 
 
+}
+
+
+let firstReload = () => {
+    var dateStart =  dateStarted;
+    var currentDateInit = new Date().format('yyyy-mm-dd HH:M')
+    var currentDate = new Date(currentDateInit).setSeconds(0)
+
+    console.log('=== update data ===');
+    console.log('=== dateStart'+dateStart+'  === full format'+new Date(dateStart)+''  );
+    console.log('=== currentDate'+currentDate+'  === full format'+new Date(currentDate)+''  );
+
+    searchDataHistory(dateStart,currentDate)
 }
