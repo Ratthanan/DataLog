@@ -6,30 +6,11 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!--Message i18n-->
-    <c:set scope="request" var="MESSAGE_NO_DATA"><spring:message code="message_no_data"/></c:set>
-    <c:set scope="request" var="MESSAGE_DELETE_SUCCESS"><spring:message code="message_delete_success"/></c:set>
-    <c:set scope="request" var="MESSAGE_DELETE_CANCELED"><spring:message code="message_delete_canceled"/></c:set>
 
-    <!--Button i18n-->
-    <c:set scope="request" var="BUTTON_SAVE"><spring:message code="button_save"/></c:set>
-    <c:set scope="request" var="BUTTON_SEARCH"><spring:message code="button_search"/></c:set>
-    <c:set scope="request" var="BUTTON_DELETE"><spring:message code="button_delete"/></c:set>
-    <c:set scope="request" var="BUTTON_EDIT"><spring:message code="button_edit"/></c:set>
 
-    <!--Label i18n-->
-    <c:set scope="request" var="LABEL_NO"><spring:message code="label_no"/></c:set>
-    <c:set scope="request" var="LABEL_FIRST_NAME"><spring:message code="label_first_name"/></c:set>
-    <c:set scope="request" var="LABEL_LAST_NAME"><spring:message code="label_last_name"/></c:set>
-    <c:set scope="request" var="LABEL_AGE"><spring:message code="label_age"/></c:set>
-    <c:set scope="request" var="LABEL_SEARCH_WITH_FIRST_NAME"><spring:message code="label_serach_with_first_name"/></c:set>
-    <c:set scope="request" var="LABEL_ALERT"><spring:message code="label_alert"/></c:set>
-    <c:set scope="request" var="LABEL_ACTION"><spring:message code="label_action"/></c:set>
+    <spring:url value="/scripts/graphUI/graphUI.js" 			var="graphUI_js_url" />
+    <script src="${graphUI_js_url}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
 
-    <!--<spring:url value="/scripts/util/pagingUtil.js" 			var="page_util_url" />-->
-    <spring:url value="/scripts/app/index.js" 			var="index_js_url" />
-    <!--<script src="${page_util_url}" 				type="text/javascript">&lt;!&ndash; required for FF3 and Opera &ndash;&gt;</script>-->
-    <script src="${index_js_url}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
 
 
     <script type="text/javascript">
@@ -100,64 +81,20 @@
     </style>
 
     <body >
+
+
+
     <div  class="container">
         <div class="control-label paddingTop">
             <div>
 
-                Wait for implement !!!
-
-
-
-
-
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 
             </div>
-
-        </div>
-
-
-
-
-    </div>
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"/></button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
         </div>
     </div>
 
 
-    <!-- Modal Edit -->
-    <div id="editModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"/></button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     </body>

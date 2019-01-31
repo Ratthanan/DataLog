@@ -124,6 +124,8 @@
 	 <spring:url value="/scripts/bootstrap-timepicker.min.js"     var="bootstrapTimepicker_js_url" />
     <spring:url value="/scripts/sweetalert.min.js"       		var="sweetalert_min_js" />
     <spring:url value="/scripts/jquery.scrollTo.min.js"       		var="jquery_scrollTo_min_js" />
+    <spring:url value="/scripts/canvasjs.min.js"       		var="canvasjs_min_js" />
+    <spring:url value="/scripts/graphUI/jquery.canvasjs.min.js"       		var="jquery_canvasjs_min_js" />
 
 
 
@@ -171,8 +173,9 @@
     <script src="${bootstrapTimepicker_js_url}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
     <script src="${bootstrapDatepicker_js_url}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
     <script src="${sweetalert_min_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${canvasjs_min_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
 
-
+    <script src="${jquery_canvasjs_min_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
     <script src="${jquery_scrollTo_min_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
 
 </jsp:root>

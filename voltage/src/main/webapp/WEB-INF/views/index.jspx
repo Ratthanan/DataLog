@@ -251,19 +251,6 @@
                    <jsp:text/>
                 </div>
 
-                <!--<table style="margin-top: 10px;"  class="table">-->
-                    <!--<thead>-->
-                    <!--<tr style=" font-weight: 900; font-size: 20px; background: #2C3E50; color: white; border: 0px solid black;">-->
-                        <!--<th class="center-align" >Device</th>-->
-                        <!--<th class="center-align">Voltage</th>-->
-                        <!--<th class="center-align">Time</th>-->
-                        <!--&lt;!&ndash;<th class="center-align">TIM</th>&ndash;&gt;-->
-                    <!--</tr>-->
-
-                    <!--</thead>-->
-                    <!--<tbody id="dataLogBody">-->
-                    <!--</tbody>-->
-                <!--</table>-->
 
             </div>
 
