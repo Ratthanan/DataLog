@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div style="background: #e7f5f585;" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:component="urn:jsptagdir:/WEB-INF/tags/component" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+<div style="background: #e7f5f585;" xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:component="urn:jsptagdir:/WEB-INF/tags/component" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
      xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8" />
-    <jsp:output omit-xml-declaration="yes" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--Message i18n-->
@@ -22,82 +23,81 @@
     <c:set scope="request" var="LABEL_FIRST_NAME"><spring:message code="label_first_name"/></c:set>
     <c:set scope="request" var="LABEL_LAST_NAME"><spring:message code="label_last_name"/></c:set>
     <c:set scope="request" var="LABEL_AGE"><spring:message code="label_age"/></c:set>
-    <c:set scope="request" var="LABEL_SEARCH_WITH_FIRST_NAME"><spring:message code="label_serach_with_first_name"/></c:set>
+    <c:set scope="request" var="LABEL_SEARCH_WITH_FIRST_NAME"><spring:message
+            code="label_serach_with_first_name"/></c:set>
     <c:set scope="request" var="LABEL_ALERT"><spring:message code="label_alert"/></c:set>
     <c:set scope="request" var="LABEL_ACTION"><spring:message code="label_action"/></c:set>
 
     <!--<spring:url value="/scripts/util/pagingUtil.js" 			var="page_util_url" />-->
-    <spring:url value="/scripts/app/index.js" 			var="index_js_url" />
+    <spring:url value="/scripts/app/index.js" var="index_js_url"/>
     <!--<script src="${page_util_url}" 				type="text/javascript">&lt;!&ndash; required for FF3 and Opera &ndash;&gt;</script>-->
-    <script src="${index_js_url}" 				type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${index_js_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
 
 
     <script type="text/javascript">
         <![CDATA[
-          var $CRITERIA_PAGE    =   '${criteria_page}';
-            var $MESSAGE_NO_DATA = '${MESSAGE_NO_DATA}';
-            var $MESSAGE_DELETE_SUCCESS = '${MESSAGE_DELETE_SUCCESS}';
-            var $MESSAGE_DELETE_CANCELED = '${MESSAGE_DELETE_CANCELED}';
+        var $CRITERIA_PAGE = '${criteria_page}';
+        var $MESSAGE_NO_DATA = '${MESSAGE_NO_DATA}';
+        var $MESSAGE_DELETE_SUCCESS = '${MESSAGE_DELETE_SUCCESS}';
+        var $MESSAGE_DELETE_CANCELED = '${MESSAGE_DELETE_CANCELED}';
 
-            var $LABEL_ALERT = '${LABEL_ALERT}';
+        var $LABEL_ALERT = '${LABEL_ALERT}';
 
-            var $BUTTON_EDIT = '${BUTTON_EDIT}';
-            var $BUTTON_DELETE = '${BUTTON_DELETE}';
+        var $BUTTON_EDIT = '${BUTTON_EDIT}';
+        var $BUTTON_DELETE = '${BUTTON_DELETE}';
 
         var MSG_SESSION_EXPIRE = '${MESSAGE_SESSION_HAS_EXPIRE}'
         var session = {
 
             context: '${pageContext.request.contextPath}',              // the context path
-            date: new Date(Number("${now.time}")).setHours(0,0,0,0),    // the current date without time
+            date: new Date(Number("${now.time}")).setHours(0, 0, 0, 0),    // the current date without time
             time: new Date(Number("${now.time}")),                      // the current date with time
             timeout: parseInt("${pageContext.session.maxInactiveInterval}"),    // the session time (second unit) get from web.xml };
-            userName:'${sessionScope.userName}',
-            roleName : '${sessionScope.ROLE_NAME}'
+            userName: '${sessionScope.userName}',
+            roleName: '${sessionScope.ROLE_NAME}'
         };
 
         var csrfParameter = '${_csrf.parameterName}';
         var csrfToken = '${_csrf.token}';
 
-        var $USERNAME         = '${sessionScope.userName}';
-        var $LANGUAGE_1         = '${sessionScope.PARAMETER_LANGUAGE[0].variable3 }';
-        var $LANGUAGE_2         = '${sessionScope.PARAMETER_LANGUAGE[1].variable3 }';
-        var $LANGUAGE_3         = '${sessionScope.PARAMETER_LANGUAGE[2].variable3 }';
-        var $LANGUAGE_4         = '${sessionScope.PARAMETER_LANGUAGE[3].variable3 }';
-        var $LANGUAGE_5         = '${sessionScope.PARAMETER_LANGUAGE[4].variable3 }';
-
-
+        var $USERNAME = '${sessionScope.userName}';
+        var $LANGUAGE_1 = '${sessionScope.PARAMETER_LANGUAGE[0].variable3 }';
+        var $LANGUAGE_2 = '${sessionScope.PARAMETER_LANGUAGE[1].variable3 }';
+        var $LANGUAGE_3 = '${sessionScope.PARAMETER_LANGUAGE[2].variable3 }';
+        var $LANGUAGE_4 = '${sessionScope.PARAMETER_LANGUAGE[3].variable3 }';
+        var $LANGUAGE_5 = '${sessionScope.PARAMETER_LANGUAGE[4].variable3 }';
 
 
         ]]>
     </script>
 
     <style>
-        .paddingTop{
+        .paddingTop {
             padding-top: 100px;
         }
 
 
         .modal {
             background-color: #fff;
-            box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12);
+            box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
             padding: 24px;
             width: 60%;
             position: relative;
             display: none;
         }
 
-        .center-align{
+        .center-align {
             text-align: center;
         }
 
         /*thead,tr,td,th,tbody*/
         /*{*/
-            /*border-collapse: collapse;*/
-            /*!*border: 1px solid black;*!*/
+        /*border-collapse: collapse;*/
+        /*!*border: 1px solid black;*!*/
 
         /*}*/
 
-        .styleHeader{
+        .styleHeader {
             font-size: 30px;
             color: #de542b;
             text-align: center;
@@ -110,7 +110,7 @@
         }
 
 
-        .styleHeader_1{
+        .styleHeader_1 {
             font-size: 30px;
             color: #de542b;
             text-align: center;
@@ -122,7 +122,7 @@
             /*border-radius: 20%;*/
         }
 
-        .styleHeader_2{
+        .styleHeader_2 {
             font-size: 30px;
             color: #de542b;
             text-align: center;
@@ -134,7 +134,8 @@
             /*border-bottom-right-radius: 20%;*/
             /*border-radius: 20%;*/
         }
-        .styleColumn_1{
+
+        .styleColumn_1 {
 
             font-size: 15px;
             color: white;
@@ -148,7 +149,8 @@
             /*border-bottom-right-radius: 20%;*/
 
         }
-        .styleColumn_2{
+
+        .styleColumn_2 {
             font-size: 15px;
             color: white;
             text-align: center;
@@ -160,7 +162,7 @@
 
         }
 
-        .styleColumn_3{
+        .styleColumn_3 {
             font-size: 15px;
             color: white;
             text-align: center;
@@ -173,105 +175,116 @@
         }
     </style>
 
-    <body >
-    <div  class="container">
-        <div class="control-label paddingTop">
-            <div>
+    <body>
+    <!--<div  class="container">-->
+    <div id="content">
+        <div id="container">
+            <div class="control-label paddingTop">
+                <div>
 
 
+                    <div class="row">
+                        <div class="form-group">
 
-                <div class="row">
-                    <div class="form-group">
-
-                        <label style="color: #2c3e50; font-weight: 900; font-size: 20px;" class="col-sm-offset-0 col-sm-2 control-label text-right" for="_search_id">Start Date</label>
-                        <div class="col-sm-4">
-                            <div class="input-group">
-                                <input class="form-control border" id="search_tim_start" type="text" style="color: #2c3e50; font-weight: 900;" placeholder="${LABEL_PLACEHOLDER_DATE_START}"/>
-                                <span class="input-group-addon"><a id="imageCalendarSearch_tim_start"><i class="fa fa-calendar fa-2x" style="color: #2c3e50"><jsp:text/></i></a></span>
+                            <label style="color: #2c3e50; font-weight: 900; font-size: 20px;"
+                                   class="col-sm-offset-0 col-sm-2 control-label text-right"
+                                   for="_search_id">Start Date</label>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <input class="form-control border" id="search_tim_start" type="text"
+                                           style="color: #2c3e50; font-weight: 900;"
+                                           placeholder="${LABEL_PLACEHOLDER_DATE_START}"/>
+                                    <span class="input-group-addon"><a id="imageCalendarSearch_tim_start"><i
+                                            class="fa fa-calendar fa-2x" style="color: #2c3e50"><jsp:text/></i></a></span>
+                                </div>
                             </div>
-                        </div>
-                        <label style="color: #2c3e50; font-weight: 900; font-size: 20px;" class="col-sm-2 control-label text-right" for="_search_id">End Date</label>
-                        <div class="col-sm-3">
-                            <div class="input-group">
-                                <input class="form-control border" id="search_tim_end" type="text" style="color: #2c3e50; font-weight: 900;" placeholder="${LABEL_PLACEHOLDER_DATE_START}"/>
-                                <span class="input-group-addon"><a id="imageCalendarSearch_tim_end"><i class="fa fa-calendar fa-2x" style="color: #2c3e50"><jsp:text/></i></a></span>
+                            <label style="color: #2c3e50; font-weight: 900; font-size: 20px;"
+                                   class="col-sm-2 control-label text-right" for="_search_id">End Date</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <input class="form-control border" id="search_tim_end" type="text"
+                                           style="color: #2c3e50; font-weight: 900;"
+                                           placeholder="${LABEL_PLACEHOLDER_DATE_START}"/>
+                                    <span class="input-group-addon"><a id="imageCalendarSearch_tim_end"><i
+                                            class="fa fa-calendar fa-2x" style="color: #2c3e50"><jsp:text/></i></a></span>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
+                    <div class="row">
+                        <div class="form-group">
 
-                        <label style="color: #2c3e50; font-weight: 900; font-size: 20px;" class="col-sm-offset-1 col-sm-1 control-label" for="_search_id">Device</label>
-                        <div class="col-sm-4">
-                            <div class="input-group col-sm-10">
-                                <select style="font-weight: 900; color: #2c3e50; font-size: 16px;" id="modal_edit_locationTo" class="form-control">
-                                    <option value="">All</option>
-                                </select>
+                            <label style="color: #2c3e50; font-weight: 900; font-size: 20px;"
+                                   class="col-sm-offset-1 col-sm-1 control-label" for="_search_id">Device</label>
+                            <div class="col-sm-4">
+                                <div class="input-group col-sm-10">
+                                    <select style="font-weight: 900; color: #2c3e50; font-size: 16px;"
+                                            id="modal_edit_locationTo" class="form-control">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                        <label style="color: #2c3e50; font-weight: 900; font-size: 20px;" class="col-sm-2 control-label text-right" for="_search_id">Voltage </label>
-                        <div class="col-sm-3">
-                            <div class="input-group col-sm-10">
-                                <input class="form-control border" id="voltage" type="text" style="color: #2c3e50; font-weight: 900;" />
+                            <label style="color: #2c3e50; font-weight: 900; font-size: 20px;"
+                                   class="col-sm-2 control-label text-right" for="_search_id">Voltage </label>
+                            <div class="col-sm-3">
+                                <div class="input-group col-sm-10">
+                                    <input class="form-control border" id="voltage" type="text"
+                                           style="color: #2c3e50; font-weight: 900;"/>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+
+                            <div class="col-sm-offset-5 col-sm-1">
+                                <button style="border-radius: 9%; font-size: 20px; font-weight: 900; margin-left: 0px; background: black"
+                                        class="btn btn-primary" type="button" id="btn_search">
+                                    <span style="color: #de542b" class="glyphicon glyphicon-search" aria-hidden="true"><jsp:text/></span> Search
+                                </button>
 
                             </div>
-                        </div>
 
-
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group">
-
-                        <div  class="col-sm-offset-5 col-sm-1">
-                            <button style="border-radius: 9%; font-size: 20px; font-weight: 900; margin-left: 0px; background: black" class="btn btn-primary" type="button" id="btn_search">
-                                <span style="color: #de542b"  class="glyphicon glyphicon-search" aria-hidden="true"><jsp:text/></span> Search
-                            </button>
 
                         </div>
-
-
                     </div>
-                </div>
 
 
                     <!--<div style="margin-top: 30px; margin-left: 0px; margin-right: 0px; width: 100%" class="row">-->
-                        <!--<div class="col-sm-3 styleHeader">Device</div>-->
-                        <!--<div class="col-sm-3 styleHeader">Voltage</div>-->
-                        <!--<div class="col-sm-3 styleHeader">Time</div>-->
-                        <!--<div class="col-sm-2 styleHeader">Action</div>-->
+                    <!--<div class="col-sm-3 styleHeader">Device</div>-->
+                    <!--<div class="col-sm-3 styleHeader">Voltage</div>-->
+                    <!--<div class="col-sm-3 styleHeader">Time</div>-->
+                    <!--<div class="col-sm-2 styleHeader">Action</div>-->
                     <!--</div>-->
 
-                <div id="dataLogBody" class="row">
-                   <jsp:text/>
+                    <div id="dataLogBody" class="row">
+                        <jsp:text/>
+                    </div>
+
+
+                </div>
+
+
+                <div style="margin-top: 10px;" class="form-group">
+                    <util:pagingutil id="pagingSearchDataLogBody"/>
                 </div>
 
 
             </div>
 
-
-
-            <div style="margin-top: 10px;" class="form-group">
-                <util:pagingutil id="pagingSearchDataLogBody"/>
-            </div>
-
-
-
         </div>
-
-
-
-
     </div>
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
+            <!--<div class="modal-content">-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"/></button>
@@ -310,7 +323,6 @@
 
 
     </body>
-
 
 
 </div>
