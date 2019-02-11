@@ -79,7 +79,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     public CustomAuthenticationSuccessHandler getAuthenticationSuccessHandler() {
         CustomAuthenticationSuccessHandler authenticationHandler = new CustomAuthenticationSuccessHandler();
-        authenticationHandler.setDefaultTargetUrl("/dataLog/history");
+        authenticationHandler.setDefaultTargetUrl("/dataLog/monitoring");
         authenticationHandler.setTargetUrlParameter("spring-security-redirect");
 
         return authenticationHandler;
