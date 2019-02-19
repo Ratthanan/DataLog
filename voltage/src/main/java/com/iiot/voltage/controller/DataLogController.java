@@ -169,7 +169,7 @@ public class DataLogController {
 
             Row headerColumn_1 = sheet.createRow(0);
             Cell cellHeaderColumn_1 = headerColumn_1.createCell(0);
-            cellHeaderColumn_1.setCellValue("Date Time");
+            cellHeaderColumn_1.setCellValue("Device Name");
 
             if(logLst.size() > 0){
                     for(int i =0; i<logLst.size(); i++){
