@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div style="background: #e7f5f585;" xmlns:c="http://java.sun.com/jsp/jstl/core"
+<div style="background: #ffffff;" xmlns:c="http://java.sun.com/jsp/jstl/core"
      xmlns:component="urn:jsptagdir:/WEB-INF/tags/component" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
      xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
@@ -173,16 +173,116 @@
             /*border-bottom-right-radius: 20%;*/
 
         }
+
+
+        .text-gradient {
+          font-size: 15px;
+background-image: linear-gradient(to right bottom, #58dc45, #2ce783, #00efb6, #3cf5dd, #76f8f8);          -webkit-background-clip: text;
+            /*color:#26B99A;*/
+          -webkit-text-fill-color: transparent;
+    }
+
+
+    .header-style-gradient{
+            font-size: 21px;
+            background-image: linear-gradient(to right bottom, #58dc45, #2ce783, #00efb6, #3cf5dd, #76f8f8);          
+            -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight:900;
+          text-align: center;
+          padding-top: 10px;
+          padding-bottom: 10px;
+
+
+    }
+
+     .detail-style-gradient{
+            font-size: 12px;
+            background-image: linear-gradient(to right bottom, #58dc45, #2ce783, #00efb6, #3cf5dd, #76f8f8);          
+            -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight:900;
+          text-align: center;
+           padding-top: 13px;
+          padding-bottom: 15px;
+         
+
+
+    }
+
+
+     .detail-font-black{
+            font-size: 12px;
+         /*   background-image: linear-gradient(to right bottom, #58dc45, #2ce783, #00efb6, #3cf5dd, #76f8f8);          
+            -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;*/
+          color: black;
+          font-weight:900;
+          text-align: center;
+           padding-top: 13px;
+          padding-bottom: 15px;
+         
+
+
+    }
+
+       .detail-font-green{
+            font-size: 12px;
+         /*   background-image: linear-gradient(to right bottom, #58dc45, #2ce783, #00efb6, #3cf5dd, #76f8f8);          
+            -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;*/
+          color: #26B99A;
+          font-weight:900;
+          text-align: center;
+           padding-top: 13px;
+          padding-bottom: 15px;
+         
+
+
+    }
+
+
+
+      .button-style-gradient{
+            font-size: 20px;
+            background-image: linear-gradient(to right bottom, #58dc45, #2ce783, #00efb6, #3cf5dd, #76f8f8);          
+            -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight:900;
+          text-align: center;
+
+
+    }
+
+
+    .remove-padding{
+        padding: 0px;
+      /*  width: 20%*/
+    }
     </style>
 
     <body>
-    <!--<div  class="container">-->
+   
+
+
+
+
+
+
     <div id="content">
+
+
+                <nav style="width:100%; margin-top:2%" aria-label="breadcrumb">
+                  <ol style="background: #e9e9e9;" class="breadcrumb ">
+                    <li style="font-weight:900;" class="breadcrumb-item "><label class="text-gradient" href="#">View Data</label></li>
+                    <li style="font-weight:900;" class="breadcrumb-item active" aria-current="page">Voltage</li>
+                  </ol>
+              </nav>
         <div id="container">
             <div class="control-label ">
                 <div>
 
-                    <div class="row">
+               <!--      <div class="row">
 
                         <div class="col-sm-offset-10 col-sm-1">
                             <button style="padding-right: 10px; padding-left: 10px; font-size: 15px; font-weight: 900; margin-left: 0px; background: #083807ed"
@@ -193,9 +293,12 @@
 
 
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="row">
+
+
+
+                  <!--   <div class="row hide">
                         <div class="form-group">
 
                             <label style="color: #2c3e50; font-weight: 900; font-size: 20px;"
@@ -224,7 +327,7 @@
 
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row hide">
                         <div class="form-group">
 
                             <label style="color: #2c3e50; font-weight: 900; font-size: 20px;"
@@ -250,36 +353,106 @@
 
 
                         </div>
+                    </div> -->
+
+                    <div style="margin-left:3%;" class="row">
+                        <div class="col-sm-12">
+                            <div  class="col-sm-6 remove-padding" >
+                                    <label style="font-weight:900; font-size: 15px; font-family:Arial, Helvetica, sans-serif; ">Start Date</label>
+                            </div>
+                               <div  class="col-sm-2 remove-padding" >
+                                    <label style="font-weight:900; font-size: 15px; font-family:Arial, Helvetica, sans-serif;">End Date</label>
+                            </div>
+                      </div>
                     </div>
 
-                    <div class="row">
-                        <div class="form-group">
-
-                            <div class="col-sm-offset-5 col-sm-1">
-                                <button style=" font-size: 15px; font-weight: 900; margin-left: 0px; background: black"
-                                        class="btn btn-primary" type="button" id="btn_search">
-                                    <span style="color: #de542b" class="glyphicon glyphicon-search" aria-hidden="true"><jsp:text/></span> Search
-                                </button>
-
-
-
+                     <div style="margin-left:3%;" class="row">
+                        <div class="col-sm-12">
+                            <div  class="col-sm-4 remove-padding" >
+                                    <input style="height: 35px;" class="col-sm-10" id="search_tim_start" type="text" />
+                                    <div class="col-sm-2" style="cursor: pointer; padding:0px;  height: 35px; background: #38b99a" ><span id="imageCalendarSearch_tim_start" class="fa fa-calendar fa-2x " style="margin-left: 25%; margin-top: 5%; color: white;"><jsp:text/></span></div>
+                            </div>
+                             <div  class="col-sm-offset-2 col-sm-4 remove-padding" >
+                                    <input style="height: 35px;" class="col-sm-10" id="search_tim_end" type="text" />
+                                     <div class="col-sm-2" style="cursor: pointer; padding:0px;  height: 35px; background: #38b99a" ><span id="imageCalendarSearch_tim_end" class="fa fa-calendar fa-2x " style="margin-left: 25%; margin-top: 5%; color: white;"><jsp:text/></span></div>
                             </div>
 
+                               
+                      </div>
+                    </div>
+
+                    <div style="margin-left:3%; margin-top:20px;" class="row">
+                        <div class="col-sm-12">
+                            <div  class="col-sm-6 remove-padding" >
+                                    <label style="font-weight:900; font-size: 15px; font-family:Arial, Helvetica, sans-serif;">Device</label>
+                            </div>
+                               <div  class="col-sm-2 remove-padding" >
+                                    <label style="font-weight:900; font-size: 15px; font-family:Arial, Helvetica, sans-serif;">Value</label>
+                            </div>
+                      </div>
+                    </div>
+
+                     <div style="margin-left:3%;" class="row">
+                        <div class="col-sm-12">
+                            <div  class="col-sm-4 remove-padding" >
+                                    <input style="height: 35px;" class="col-sm-12" id="search_tim_start" type="text" />
+                            </div>
+                             <div  class="col-sm-offset-2 col-sm-4 remove-padding" >
+                                    <input style="height: 35px;" class="col-sm-12" id="search_tim_end" type="text" />
+                            </div>
+
+                               
+                      </div>
+                    </div>
 
 
+                    <div style="margin-left:3%; margin-top: 20px;" class="row">
+                        <div class="col-sm-12">
+                           
+
+                                <div  class="col-sm-2 remove-padding" >
+                                    <button style="width: 100%; font-size: 15px; font-weight: 900; margin-left: 0px; background: #26B99A"
+                                            class="btn btn-primary " type="button" id="btn_search">
+                                         SEARCH
+                                    </button>
+
+
+
+                                </div>
+                                 <div class="col-sm-2 remove-padding">
+                                    <button style="width: 100%; font-size: 15px; font-weight: 900; background: #5bc0de"
+                                            class="btn btn-primary" type="button" id="btn_export">
+                                         EXPORT EXCEL
+                                    </button>
+
+
+
+                                </div>
+
+
+                           
 
                         </div>
                     </div>
 
 
-                    <!--<div style="margin-top: 30px; margin-left: 0px; margin-right: 0px; width: 100%" class="row">-->
-                    <!--<div class="col-sm-3 styleHeader">Device</div>-->
-                    <!--<div class="col-sm-3 styleHeader">Voltage</div>-->
-                    <!--<div class="col-sm-3 styleHeader">Time</div>-->
-                    <!--<div class="col-sm-2 styleHeader">Action</div>-->
-                    <!--</div>-->
 
-                    <div id="dataLogBody" class="row">
+
+
+
+
+                    <div style="margin-top:5px; margin-left:3%;" class="row">
+                        <div class="col-sm-12 ">
+                            <div style="border-top: 1px solid #b4bcc2; border-bottom: 1px solid #b4bcc2; border-left: 1px solid #b4bcc2;" class=" col-sm-4 header-style-gradient">DEVICE</div>
+                            <div style="border-top: 1px solid #b4bcc2; border-bottom: 1px solid #b4bcc2;" class="col-sm-2 header-style-gradient">VALUE</div>
+                            <div style="border-top: 1px solid #b4bcc2; border-bottom: 1px solid #b4bcc2;;" class="col-sm-1 header-style-gradient">UNIT</div>
+                            <div style="border-top: 1px solid #b4bcc2; border-bottom: 1px solid #b4bcc2;;" class="col-sm-2 header-style-gradient">TIME</div>
+                            <div style="border-top: 1px solid #b4bcc2; border-bottom: 1px solid #b4bcc2; border-right: 1px solid #b4bcc2;" class="col-sm-2 header-style-gradient">ACTION</div>
+                            
+                          </div>
+                    </div>
+
+                    <div style="margin-left:3%;" id="dataLogBody" class="row">
                         <jsp:text/>
                     </div>
 

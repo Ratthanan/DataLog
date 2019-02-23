@@ -208,7 +208,7 @@
                         Monitoring</a>
                     <a class="manuhed" href="#">
                         <span class="fa fa-plug" aria-hidden="true"><jsp:text/></span>
-                        Connections</a>
+                        Logout</a>
                 </div>
             </div>
         </div>

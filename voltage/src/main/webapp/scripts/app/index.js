@@ -78,13 +78,13 @@ let queryDataLog = (criteriaObject) =>{
 
 
         $('#dataLogBody').empty();
-        $('#dataLogBody').append('' +
-            '<div style="margin-top: 10px; margin-left: 0px; margin-right: 0px;" class="row">' +
-            '<div class="col-sm-3 styleHeader">Device</div>' +
-            '<div class="col-sm-3 styleHeader_1">Voltage</div>' +
-            '<div class="col-sm-3 styleHeader">Time</div>' +
-            '<div class="col-sm-2 styleHeader_2">Action</div>' +
-            '</div>')
+        // $('#dataLogBody').append('' +
+        //     '<div style="margin-top: 10px; margin-left: 0px; margin-right: 0px;" class="row">' +
+        //     '<div class="col-sm-3 styleHeader">Device</div>' +
+        //     '<div class="col-sm-3 styleHeader_1">Voltage</div>' +
+        //     '<div class="col-sm-3 styleHeader">Time</div>' +
+        //     '<div class="col-sm-2 styleHeader_2">Action</div>' +
+        //     '</div>')
         if(item.length > 0 && item != null){
             $dataForQuery = item;
             var itemIdTmp ;
@@ -122,13 +122,18 @@ let queryDataLog = (criteriaObject) =>{
                 //     '</tr>'+
                 //     '')
 
-                $('#dataLogBody').append('' +
-                        '<div style="margin-top: 10px; margin-left: 20px; margin-right: 0px;" class="row">' +
-                        '<div class="col-sm-3 styleColumn_1">'+UID+'</div>' +
-                        '<div class="col-sm-3 styleColumn_1">'+(cout % 2 == 0 ? '0' : '1')+'</div>' +
-                        '<div class="col-sm-3 styleColumn_1">'+fullDate+'</div>' +
-                        '<div style="margin-left: 15px;" class="col-sm-2 styleColumn_1">'+'<jsp:text/><br/>'+'</div>' +
+                $('#dataLogBody').append(''+
+                          '<div class="col-sm-12">'+
+                        '<div style="border-bottom: 1px solid #b4bcc2; border-left: 1px solid #b4bcc2;" class="col-sm-4 detail-font-green">'+UID+'</div>'+
+                        '<div style="border-bottom: 1px solid #b4bcc2; " class="col-sm-2 detail-font-black ">'+(cout % 2 == 0 ? '0' : '1')+'</div>' +
+                        '<div style="border-bottom: 1px solid #b4bcc2; " class="col-sm-1 detail-font-black ">'+'volt'+'</div>' +
+                        '<div style="border-bottom: 1px solid #b4bcc2; " class="col-sm-2 detail-font-black ">'+fullDate+'</div>' +
+                        '<div style="border-bottom: 1px solid #b4bcc2; border-right: 1px solid #b4bcc2;" class="col-sm-2">'+'<button style="color:white; font-weight:900; margin-left:30%; padding-bottom:7px; margin-bottom:5px; background-image: linear-gradient(to left bottom, #5bc0de, #3dc0d3, #1ebec4, #11bcb0, #26b99a);" class="btn btn-sm center">View</button>'+'</div>' +
+                 
                     '</div>')
+
+
+
 
             }
 
