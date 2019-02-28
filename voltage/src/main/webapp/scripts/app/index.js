@@ -123,14 +123,12 @@ let queryDataLog = (criteriaObject) =>{
                 //     '')
 
                 $('#dataLogBody').append(''+
-                          '<div class="col-sm-12 ' +
-                    ((j%2 == 0) ? ' class="bgWhite" ' : ' class="bgGrey"')+'>'+
-                    '">'+
-                        '<div style="border-bottom: 1px solid #b4bcc2; border-left: 1px solid #b4bcc2;" class="col-sm-4 detail-font-green">'+UID+'</div>'+
-                        '<div style="border-bottom: 1px solid #b4bcc2; " class="col-sm-2 detail-font-black ">'+(cout % 2 == 0 ? '0' : '1')+'</div>' +
-                        '<div style="border-bottom: 1px solid #b4bcc2; " class="col-sm-1 detail-font-black ">'+'volt'+'</div>' +
-                        '<div style="border-bottom: 1px solid #b4bcc2; " class="col-sm-2 detail-font-black ">'+fullDate+'</div>' +
-                        '<div style="border-bottom: 1px solid #b4bcc2; border-right: 1px solid #b4bcc2;" class="col-sm-2">'+'<button style="color:white; font-weight:900; margin-left:30%; padding-bottom:7px; margin-bottom:5px; background-image: linear-gradient(to left bottom, #5bc0de, #3dc0d3, #1ebec4, #11bcb0, #26b99a);" class="btn btn-sm center">View</button>'+'</div>' +
+                          '<div class="col-sm-12">' +
+                        '<div '+((j%2 == 0) ? ' class="col-sm-4 detail-font-green bgWhite" ' : ' class="col-sm-4 detail-font-green bgGrey"')+'  style="border-bottom: 1px solid #b4bcc2; border-left: 1px solid #b4bcc2;">'+UID+'</div>'+
+                        '<div '+((j%2 == 0) ? ' class="col-sm-2 detail-font-black bgWhite" ' : ' class="col-sm-2 detail-font-black bgGrey"')+' style="border-bottom: 1px solid #b4bcc2; " >'+(cout % 2 == 0 ? '0' : '1')+'</div>' +
+                        '<div '+((j%2 == 0) ? ' class="col-sm-1 detail-font-black bgWhite" ' : ' class="col-sm-1 detail-font-black bgGrey"')+' style="border-bottom: 1px solid #b4bcc2; " >'+'volt'+'</div>' +
+                        '<div '+((j%2 == 0) ? ' class="col-sm-2 detail-font-black bgWhite" ' : ' class="col-sm-2 detail-font-black bgGrey"')+' style="border-bottom: 1px solid #b4bcc2; " >'+fullDate+'</div>' +
+                        '<div '+((j%2 == 0) ? ' class="col-sm-2 bgWhite" ' : ' class="col-sm-2 bgGrey"')+' style="border-bottom: 1px solid #b4bcc2; border-right: 1px solid #b4bcc2;">'+'<button style="color:white; font-weight:900; margin-left:30%; padding-bottom:7px; margin-bottom:5px; background-image: linear-gradient(to left bottom, #5bc0de, #3dc0d3, #1ebec4, #11bcb0, #26b99a);" class="btn btn-sm center">View</button>'+'</div>' +
                  
                     '</div>')
 
