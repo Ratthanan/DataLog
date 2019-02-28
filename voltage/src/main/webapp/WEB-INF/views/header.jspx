@@ -170,16 +170,16 @@
                         <label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif;">Main Menu</label>
                     </div>
                     <div class="col-md-12 divlonghed">
-                        <a class="menuyal" onclick="goHistory()" ><label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif; font-weight: 500;">History &#38; Report</label></a>
+                        <a class="menuyal" onclick="goHistory()" ><label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif; font-weight: 500; cursor: pointer;">History &#38; Report</label></a>
                     </div>
                     <div class="col-md-12 divlong">
-                        <a style="font-weight: 500; color: #ffffff; font-family: Arial, Helvetica, sans-serif;" class="menuyal" onclick="goMenu()"><label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif; font-weight: 500;">Monitoring</label></a>
+                        <a style="font-weight: 500; color: #ffffff; font-family: Arial, Helvetica, sans-serif;" class="menuyal" onclick="goMenu()"><label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif; font-weight: 500; cursor: pointer;">Monitoring</label></a>
                     </div>
                     <div class="col-md-12 divHed">
                         <labal style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif; font-weight: 900;">General</labal>
                     </div>
                     <div class="col-md-12 divlong">
-                        <a style="font-weight: 500; color: black; font-family: Arial, Helvetica, sans-serif;" class="menuyal" onclick="submitlogout()"><label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif; font-weight: 500;">Logout</label></a>
+                        <a style="font-weight: 500; color: black; font-family: Arial, Helvetica, sans-serif;" class="menuyal" onclick="submitlogout()"><label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif; font-weight: 500; cursor: pointer;">Logout</label></a>
                     </div>
                 </div>
             </div>
@@ -204,11 +204,11 @@
             <div class="col-md-11 text-right">
                 <div class="d-inline-flex">
                     <a class="manuhed" href="#">
-                        <span class="fa fa-desktop" aria-hidden="true"><jsp:text/></span>
-                        <label style="color: black; font-weight: 900; font-family:Arial, Helvetica, sans-serif; ">Monitoring</label></a>
+                        <span style="color:black" class="fa fa-desktop" aria-hidden="true"><jsp:text/></span>
+                        <label style="color: black; font-weight: 900; font-family:Arial, Helvetica, sans-serif; cursor: pointer; ">Monitoring</label></a>
                     <a class="manuhed" href="#">
-                        <span class="fa fa-plug" aria-hidden="true"><jsp:text/></span>
-                        <label style="color: black; font-weight: 900; font-family:Arial, Helvetica, sans-serif; " >Logout</label></a>
+                        <span style="color:black" class="fa fa-plug" aria-hidden="true"><jsp:text/></span>
+                        <label style="color: black; font-weight: 900; font-family:Arial, Helvetica, sans-serif; cursor: pointer; " >Logout</label></a>
                 </div>
             </div>
         </div>

@@ -266,7 +266,7 @@ background-image: linear-gradient(to right bottom, #58dc45, #2ce783, #00efb6, #3
         }
 
         .bgGrey{
-            background-color: lightgrey;
+            background-color: #ececec;
         }
     </style>
 
