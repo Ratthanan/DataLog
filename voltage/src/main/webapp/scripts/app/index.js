@@ -123,7 +123,9 @@ let queryDataLog = (criteriaObject) =>{
                 //     '')
 
                 $('#dataLogBody').append(''+
-                          '<div class="col-sm-12">'+
+                          '<div class="col-sm-12 ' +
+                    ((j%2 == 0) ? ' class="bgWhite" ' : ' class="bgGrey"')+'>'+
+                    '">'+
                         '<div style="border-bottom: 1px solid #b4bcc2; border-left: 1px solid #b4bcc2;" class="col-sm-4 detail-font-green">'+UID+'</div>'+
                         '<div style="border-bottom: 1px solid #b4bcc2; " class="col-sm-2 detail-font-black ">'+(cout % 2 == 0 ? '0' : '1')+'</div>' +
                         '<div style="border-bottom: 1px solid #b4bcc2; " class="col-sm-1 detail-font-black ">'+'volt'+'</div>' +

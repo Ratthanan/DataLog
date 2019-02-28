@@ -167,19 +167,19 @@
                 </div>
                 <div class="menuH">
                     <div class="col-md-12 divHed">
-                        <labal style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif;">Main Menu</labal>
+                        <label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif;">Main Menu</label>
                     </div>
                     <div class="col-md-12 divlonghed">
-                        <a class="menuyal" onclick="goHistory()" >History &#38; Report</a>
+                        <a class="menuyal" onclick="goHistory()" ><label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif;">History &#38; Report</label></a>
                     </div>
                     <div class="col-md-12 divlong">
-                        <a class="menuyal" onclick="goMenu()">Monitoring</a>
+                        <a style="font-weight: 500; color: black; font-family: Arial, Helvetica, sans-serif;" class="menuyal" onclick="goMenu()"><label>Monitoring</label></a>
                     </div>
                     <div class="col-md-12 divHed">
                         <labal style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif;">General</labal>
                     </div>
                     <div class="col-md-12 divlong">
-                        <a class="menuyal" onclick="submitlogout()">Logout</a>
+                        <a style="font-weight: 500; color: black; font-family: Arial, Helvetica, sans-serif;" class="menuyal" onclick="submitlogout()"><label style="color: white;font-size: 15px;font-family: Arial, Helvetica, sans-serif;">Logout</label></a>
                     </div>
                 </div>
             </div>
