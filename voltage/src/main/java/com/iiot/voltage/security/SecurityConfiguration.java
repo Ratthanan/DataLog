@@ -41,6 +41,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .antMatchers(
                         "/resources/**",
+                        "resources/image/**",
+                        "resources/image/logo.png",
+                        "/image/**",
+                        "/image/logo.png",
                         "/resources/scripts/**",
                         "/resources/scripts/bootstrap.min.js",
                         "/resources/scripts/jquery-3.3.1.min.js",
