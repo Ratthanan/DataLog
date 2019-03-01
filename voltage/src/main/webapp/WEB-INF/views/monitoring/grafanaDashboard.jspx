@@ -196,7 +196,7 @@
 
         #imgground{
 
-            height:11px;
+            height:12px;
             width:50%;
         }
 
@@ -218,7 +218,7 @@
             <div>
                 <div class="search-wrapper">
                     <div class="input-holder">
-                        <img id="imgground" src="https://sv1.picz.in.th/images/2019/03/01/tWMSc0.png" alt="Smiley face"/>
+                        <img id="imgground" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABBQAAAAqCAIAAACMQp8FAAAAA3NCSVQICAjb4U/gAAAAGXRFWHRTb2Z0d2FyZQBnbm9tZS1zY3JlZW5zaG907wO/PgAAAPdJREFUeJzt18ENwCAQwLDS/Xc+RiA/hGRPkG/WzHwAAAAn/+0AAADgDeYBAABIzAMAAJCYBwAAIDEPAABAYh4AAIDEPAAAAIl5AAAAEvMAAAAk5gEAAEjMAwAAkJgHAAAgMQ8AAEBiHgAAgMQ8AAAAiXkAAAAS8wAAACTmAQAASMwDAACQmAcAACAxDwAAQGIeAACAxDwAAACJeQAAABLzAAAAJOYBAABIzAMAAJCYBwAAIDEPAABAYh4AAIDEPAAAAIl5AAAAEvMAAAAk5gEAAEjMAwAAkJgHAAAgMQ8AAEBiHgAAgMQ8AAAAiXkAAAAS8wAAACQbr2ADUau5/y4AAAAASUVORK5CYII=" alt="Smiley face"/>
                     </div>
                 </div>
 
