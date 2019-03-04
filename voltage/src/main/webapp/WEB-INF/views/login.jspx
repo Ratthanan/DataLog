@@ -248,8 +248,10 @@
             background-size: cover;
             /*background-repeat: no-repeat;*/
             /*background-size: cover;*/
-            margin: unset;
-            padding: unset;
+            /*margin: unset;*/
+            /*padding: unset;*/
+            overflow-y: hidden;
+            overflow-x: hidden;
 
             /*background-color: black;*/
             /*[img]https://sv1.picz.in.th/images/2019/02/08/TqFZEZ.jpg[/img]*/
