@@ -16,6 +16,8 @@
 
         #container{
             margin-right: 3vh;
+            overflow-y: hidden;
+            overflow-x: hidden;
         }
         a#menu-btn {
             margin-bottom: 8px;

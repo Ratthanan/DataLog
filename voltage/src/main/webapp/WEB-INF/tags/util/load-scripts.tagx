@@ -77,7 +77,7 @@
     <link rel="stylesheet" type="text/css" href="${animate_min_css}"  />
     <link rel="stylesheet" type="text/css" href="${flatpickr_min_css}"  />
 
-     
+
      <!-- Load JS -->
 
      <spring:url value="/scripts/util/URLUtil.js" 				var="url_util_js_url" />
@@ -87,7 +87,7 @@
      <spring:url value="/scripts/util/ValidateFieldUtil.js" 		var="validtae_field_util_js_url" />
      <spring:url value="/scripts/util/pagingUtil.js" 				var="pagingUtil_js_url" />
      <spring:url value="/scripts/bootstrap-paginator.js" 			var="bootstrap_paginator_url" />
-    
+
      <spring:url value="/scripts/jquery-1.11.1.min.js" 			var="jquery_js_url" />
      <spring:url value="/scripts/jquery-ui.min.js" 				var="jquery_ui_js_url" />
      <spring:url value="/scripts/jquery-ui-1.11.1.min.js" 		var="jqueryUI_js_url" />
@@ -125,7 +125,8 @@
     <spring:url value="/scripts/sweetalert.min.js"       		var="sweetalert_min_js" />
     <spring:url value="/scripts/jquery.scrollTo.min.js"       		var="jquery_scrollTo_min_js" />
     <spring:url value="/scripts/canvasjs.min.js"       		var="canvasjs_min_js" />
-    <spring:url value="/scripts/graphUI/jquery.canvasjs.min.js"       		var="jquery_canvasjs_min_js" />
+    <!--<spring:url value="/scripts/graphUI/jquery.canvasjs.min.js"       		var="jquery_canvasjs_min_js" />-->
+    <spring:url value="/scripts/jquery.canvasjs.min.js"       		var="jquery_canvasjs_min_js" />
 
 
 
@@ -163,9 +164,9 @@
     <script src="${typeahead_bundle_js_url}" 	type="text/javascript"><!-- required for FF3 and Opera --></script>
     <script src="${standard_js_url}" 			type="text/javascript"><!-- required for FF3 and Opera --></script>
     <script src="${bootstrapTokenfield_js_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
-    <script src="${bootstrap_paginator_url}" 	type="text/javascript"><!-- required for FF3 and Opera --></script> 
-    <script src="${modernizr_custom_js}" 		type="text/javascript"><!-- required for FF3 and Opera --></script> 
-    <script src="${jquery_growl_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script> 
+    <script src="${bootstrap_paginator_url}" 	type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${modernizr_custom_js}" 		type="text/javascript"><!-- required for FF3 and Opera --></script>
+    <script src="${jquery_growl_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
     <script src="${google_chart_js}" 		    type="text/javascript"><!-- required for FF3 and Opera --></script>
 	<script src="${picker_th_js}" 		        type="text/javascript"><!-- required for FF3 and Opera --></script>
     <script src="${flatpickr_js}" 		        type="text/javascript"><!-- required for FF3 and Opera --></script>

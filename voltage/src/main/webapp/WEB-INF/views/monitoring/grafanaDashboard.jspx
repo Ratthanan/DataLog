@@ -57,12 +57,12 @@
             padding-top: 100px;
         }
 
-        div.jj{
-            background-image: url("https://canvasjs.com/wp-content/uploads/images/gallery/gallery-overview/cloudy.png");
-            /*left: ;*/
-            top: 280px;
-            position: absolute;
-        }
+        /*div.jj{*/
+            /*background-image: url("https://canvasjs.com/wp-content/uploads/images/gallery/gallery-overview/cloudy.png");*/
+            /*!*left: ;*!*/
+            /*top: 280px;*/
+            /*position: absolute;*/
+        /*}*/
 
         .modal {
             background-color: #fff;
@@ -210,11 +210,24 @@
     <div id="content">
     <div id="container">
         <div class="control-label paddingTop">
-            <div>
-
-                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-
+            <div class="row" style="margin-bottom: 50px">
+                <div class="col-md-6" style="background-color: rgba(255,255,255,0)">
+                    <div id="chartContainer" style="height: 300px; width: 100%;"><jsp:text/></div>
+                </div>
+                <div class="col-md-6" style="background-color: rgba(255,255,255,0)">
+                    <div id="chartContainer1" style="height: 300px; width: 100%;"><jsp:text/></div>
+                </div>
             </div>
+
+            <div class="row" style="margin-bottom: 50px">
+                <div class="col-md-6" style="background-color: rgba(255,255,255,0)">
+                    <div id="chartContainer3" style="height: 300px; width: 100%;"><jsp:text/></div>
+                </div>
+                <div class="col-md-6" style="background-color: rgba(255,255,255,0)">
+                    <div id="chartContainer2" style="height: 300px; width: 100%;"><jsp:text/></div>
+                </div>
+            </div>
+
             <div>
                 <div class="search-wrapper">
                     <div class="input-holder">
